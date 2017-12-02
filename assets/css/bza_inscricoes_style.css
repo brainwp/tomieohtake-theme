@@ -109,7 +109,7 @@ form#login-user a.close{
 
 /*modal ajax-use*/
 #modal-fundo{
-  
+
 }
 #modal-loading,#user-loading{
   background-image:url('../../images/loader.gif');
@@ -126,4 +126,7 @@ form#login-user a.close{
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
 
+}
+.rg-user{
+  max-width:300px;
 }

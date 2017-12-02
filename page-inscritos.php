@@ -31,8 +31,7 @@ get_header('inscricao'); ?>
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
-              // add_user_meta( 218, 'inscricao_completa', 1, true );
-
+              // add_post_meta( 356, 'inscricao_completa', 1, true );
 
                 $args = array(
   	                'role'         => 'candidato',
@@ -68,7 +67,11 @@ get_header('inscricao'); ?>
           <div id="dados-user">
             <h3 id="nome-user">Escolha um usuário para visualizar</h3>
             <div id="links-user">
+              <div id="cadastro">
                 Clique em um dos úsuários da lista para carregar suas informações.
+              </div>
+              <div id="inscricao">
+              </div>
             </div>
             <div id="user-loading">
 

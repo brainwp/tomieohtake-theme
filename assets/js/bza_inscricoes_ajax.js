@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
       // alert($(this).attr('data-id'));
       $('#nome-user').html($(this).text());
       $('.candidatos').addClass('desativado');
-
+      $('#links-user').fadeOut();
       $('#user-loading').fadeIn(500);
       $.ajax({
           type: 'POST',
@@ -80,10 +80,22 @@ jQuery(document).ready(function($) {
             },
           success: function(data){
             console.log(data);
+            $('#links-user #cadastro').html('<div>'+data['perfil_completo']+'</div>');
+            $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
+            $('#links-user #cadastro').append('<div><button class="button button-primary">Ver cadastro</button></div>');
+            if (data['modal_inscricao']) {
+              $('#links-user #inscricao').html('<div>'+data['inscricao_completa']+'</div>');
+              $('#links-user #inscricao').append('<div><button class="acf-button button button-primary button-large">Ver Inscrição</button></div>');
+            }
+            else{
+              $('#links-user #inscricao').html('<div>O candidato não fez uma inscrição</div>');
+            }
             $('#user-loading').fadeOut(500);
-            $('.candidatos').removeClass('desativado');
+            $('.candidatos').removeClass('desativado');1
             $('#modal-cadastro').html(data['modal_cadastro']);
             $('#modal-inscricao').html(data['modal_inscricao']);
+            $('#links-user').fadeIn();
+
 
           }
       });
