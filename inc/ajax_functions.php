@@ -19,3 +19,17 @@ function ajax_login(){
 
     die();
 }
+
+
+// pega_user
+function pega_user(){
+  if (isset($_POST['id'])) {
+    $id=$_POST['id'];
+    echo json_encode(array('id'=>$id, 'message'=>__('Sucesso!')));
+  }
+  else {
+    echo json_encode(array('id'=>'nao sei', 'message'=>__('duh!')));
+  }
+  die();
+
+}

@@ -42,11 +42,11 @@ jQuery(document).ready(function($) {
 
     // Perform AJAX login on form submit
     $('form#login-user').on('submit', function(e){
-        $('form#login-user p.status').show().text(ajax_login_object.loadingmessage);
+        $('form#login-user p.status').show().text(ajax_bza_inscricoes_object.loadingmessage);
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: ajax_login_object.ajaxurl,
+            url: ajax_bza_inscricoes_object.ajaxurl,
             data: {
                 'action': 'ajaxlogin', //calls wp_ajax_nopriv_ajaxlogin
                 'username': $('form#login-user #username').val(),
@@ -61,6 +61,30 @@ jQuery(document).ready(function($) {
             }
         });
         e.preventDefault();
+    });
+
+    // ajax da página de inscritos
+    $('.page-template-page-inscritos-php .user_ajax').on('click', function(e){
+      // alert($(this).attr('data-id'));
+      $('#nome-user').html($(this).text());
+      $('.candidatos').addClass('desativado');
+
+      $('#user-loading').fadeIn(500);
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'pegauser', //calls wp_ajax_nopriv_ajaxlogin
+              'id': $(this).attr('data-id')
+            },
+          success: function(data){
+            console.log(data);
+            $('#user-loading').fadeOut(500);
+            $('.candidatos').removeClass('desativado');
+          }
+      });
+      e.preventDefault();
     });
 
 

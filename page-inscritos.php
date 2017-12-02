@@ -27,7 +27,7 @@ get_header('inscricao'); ?>
 				<main id="main" class="site-main" role="main">
 					<div class="col-md-6" id="login-preliminar">
 						<h2 class="fullheader-title">Lista</h2>
-            <div class="Cadidatos">
+            <div class="candidatos">
   						<?php
                 $args = array(
   	                'role'         => 'candidato',
@@ -46,6 +46,7 @@ get_header('inscricao'); ?>
                       <label for="user_<?php echo $user_id;?>">
                       </label>
                       <br>
+                    </a>
 
                     <?php
                     // print_r($value->ID);
@@ -57,22 +58,19 @@ get_header('inscricao'); ?>
               ?>
             </div>
 					</div>
-					<div class="col-md-6" id="cadastro-preliminar">
-					<h2 class="fullheader-title">Não possui? Cadastre-se!</h2>
-						<?php
-								$args=array(
-									'post_id'		=> 'new_user',
-									// 'field_groups' => array(61),
-									'fields' => array('field_59fc6a2a127ad','field_59fc712d7a1fc','field_59fe003f256d9','field_59fe0082256da'),
-									'html_after_fields'	=> '<input type="text" id="honeypot" name="honeypot" autocomplete="off">',
-									'updated_message' => __("", 'acf'),
+					<div class="col-md-6" id="mostra-user-ajax">
+					<h2 class="fullheader-title">Inscrição</h2>
+          <div id="dados-user">
+            <h3 id="nome-user">Escolha um usuário para visualizar</h3>
+            <div id="links-user">
+                Clique em um dos úsuários da lista para carregar suas informações.
+            </div>
+            <div id="user-loading">
+
+            </div>
+          </div>
 
 
-									'submit_value'		=> 'Próximo passo'
-								);
-							acf_form($args);
-
-							?>
 					</div>
 
 
@@ -81,5 +79,11 @@ get_header('inscricao'); ?>
 			</div><!-- #primary -->
 		</div><!--#content-inside -->
 	</div><!-- #content -->
-
+  <div id="modal">
+    <div id="modal-fundo">
+      <div id="modal-loading" data-state=""></div>
+      <div id="modal-cadastro" data-state=""></div>
+      <div id="modal-inscricao" data-state=""></div>
+    </div>
+  </div>
 <?php get_footer(); ?>

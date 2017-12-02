@@ -53,6 +53,11 @@ form#login-user a.close{
 
 
 /*Listagem de usuarios*/
+.candidatos{
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
 .candidato input {
   border: 0;
   width: 1px;
@@ -87,6 +92,7 @@ form#login-user a.close{
   border: solid 1px black;
   padding: 5px 10px;
   margin: 10px 0;
+
 }
 .candidato  input:checked ~ label:before {
   color: #FFC107;
@@ -98,4 +104,27 @@ form#login-user a.close{
 
 .candidato  label:hover:before {
   color: #FFC107;
+}
+
+
+/*modal ajax-use*/
+#modal-fundo{
+  height: 100vh;
+  width: 100vw;
+}
+#modal-loading,#user-loading{
+  background-image:url('../../images/loader.gif');
+  height:149px;
+  width:218px;
+  display: none;
+  margin: 0 auto;
+
+}
+.desativado {
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
 }
