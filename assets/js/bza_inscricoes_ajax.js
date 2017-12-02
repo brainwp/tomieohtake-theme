@@ -82,6 +82,9 @@ jQuery(document).ready(function($) {
             console.log(data);
             $('#user-loading').fadeOut(500);
             $('.candidatos').removeClass('desativado');
+            $('#modal-cadastro').html(data['modal_cadastro']);
+            $('#modal-inscricao').html(data['modal_inscricao']);
+
           }
       });
       e.preventDefault();

@@ -109,8 +109,7 @@ form#login-user a.close{
 
 /*modal ajax-use*/
 #modal-fundo{
-  height: 100vh;
-  width: 100vw;
+  
 }
 #modal-loading,#user-loading{
   background-image:url('../../images/loader.gif');

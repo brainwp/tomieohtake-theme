@@ -13,12 +13,12 @@
 		'post_type'              => array( 'bza_inscricoes' ),
 		'author'            => $user_id,
 		'tax_query' => array(
-		array(
-			'taxonomy' => 'category',
-			'field'    => 'name',
-			'terms'    => 'Prêmio EDP nas Artes',
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'name',
+				'terms'    => 'Prêmio EDP nas Artes',
+			),
 		),
-	),
 	);
 
 	// The Query

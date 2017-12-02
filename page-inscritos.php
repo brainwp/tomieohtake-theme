@@ -29,6 +29,11 @@ get_header('inscricao'); ?>
 						<h2 class="fullheader-title">Lista</h2>
             <div class="candidatos">
   						<?php
+              // add_user_meta( 212, 'perfil_completo', '1', true );
+              // add_user_meta( 218, 'perfil_completo', 1, true );
+              // add_user_meta( 218, 'inscricao_completa', 1, true );
+
+
                 $args = array(
   	                'role'         => 'candidato',
                 );
