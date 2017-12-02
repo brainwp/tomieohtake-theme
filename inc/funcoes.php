@@ -415,3 +415,29 @@ function email_confirma_user($email){
   // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
 
  }
+
+
+//Verifica se usuário tem inscrição
+//Verifica se usuário tem inscrição
+//Verifica se usuário tem inscrição
+//$args é um array que da forma:
+// array(
+//  'user' => 'id_user',
+//  'user_role' => 'role',
+//  'cpt' => 'slug_cpt',
+//  'tax' => array(
+//    'tax_1'=>tax,
+//    'tax_2'=>tax2,
+//   ),
+//  'meta_user' => array(
+//    'meta_user_1'=>'meta',
+//    'meta_user_2'=>'meta_2',
+//   ),
+//  'meta_post' => array(
+//    'meta_post_1'=>'meta',
+//    'meta_post_2'=>'meta_2',
+//   ),
+// )
+function verifica_cpt($args){
+
+}
