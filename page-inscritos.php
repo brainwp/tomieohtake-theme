@@ -36,9 +36,18 @@ get_header('inscricao'); ?>
                 foreach ($candidatos as $candidato => $value) {
                   ?>
                   <div id="<?php echo $value->ID ?>" class="candidato">
+                    <?php
+                    $user_nome = get_field('nome_completo', 'user_'.$value->ID);
+                    $user_id = $value->ID;
+                    ?>
+                    <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
+                      <?php echo $user_nome; ?>
+                      <input type="checkbox" id="user_<?php echo $user_id;?>"  value="1" />
+                      <label for="user_<?php echo $user_id;?>">
+                      </label>
+                      <br>
 
                     <?php
-                    echo get_field('nome_completo', 'user_'.$value->ID).'<input type="checkbox" id="user_'.$value->ID.'" value="1" /><label for="user_'.$value->ID.'"></label><br>';
                     // print_r($value->ID);
                     // echo "mais uma<br>";
                     ?>

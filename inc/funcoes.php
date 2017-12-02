@@ -1,18 +1,19 @@
 <?php
 function bza_inscricoes_scripts() {
     wp_enqueue_style( 'style-bza_inscricoes', get_stylesheet_directory_uri().'/assets/css/bza_inscricoes_style.css' );
-    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
-    wp_enqueue_script( 'ajax-login-script' );
+    wp_register_script('ajax-bza_inscricoes', get_stylesheet_directory_uri() . '/assets/js/bza_inscricoes_ajax.js', array('jquery') );
+    wp_enqueue_script( 'ajax-bza_inscricoes' );
+
 }
 add_action( 'wp_enqueue_scripts', 'bza_inscricoes_scripts' );
 
 //ajax login
 function ajax_login_init(){
 
-    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
-    wp_enqueue_script('ajax-login-script');
+    wp_register_script('ajax-bza_inscricoes', get_stylesheet_directory_uri() . '/assets/js/bza_inscricoes_ajax.js', array('jquery') );
+    wp_enqueue_script('ajax-bza_inscricoes');
 
-    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
+    wp_localize_script( 'ajax-bza_inscricoes', 'ajax_login_object', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'redirecturl' => home_url(),
         'loadingmessage' => __('Verificando dados...')
