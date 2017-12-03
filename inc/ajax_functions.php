@@ -108,7 +108,14 @@ function salva_rg(){
 }
 
 function marca_finalista(){
-  update_user_meta( $_POST['id'], 'finalista', $_POST['valor'] );
-  echo json_encode(array($_POST));
-  die();
+  $user_query = new WP_User_Query( array( 'meta_key' => 'finalista', 'meta_value' => 1 ) );
+  $contagem = json_encode(count($user_query->results));
+  if ($contagem == 8 && $_POST['valor'] == 1) {
+    echo json_encode('Já existem oito candidatos selecionados');
+  }
+  else {
+    $resultado = update_user_meta( $_POST['id'], 'finalista', $_POST['valor'] );
+    echo json_encode($resultado);
+  }
+    die();
 }

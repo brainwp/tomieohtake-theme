@@ -194,8 +194,8 @@ function verifica_box(elemento){
     // marca candidato como finalista
     $('.page-template-page-inscritos-php .seleciona-candidato').on('click', function(e){
       var valor = verifica_box($(this));
-
-      console.log(valor);
+      var elemento = $(this);
+      // console.log(valor);
       $.ajax({
           type: 'POST',
           dataType: 'json',
@@ -206,6 +206,10 @@ function verifica_box(elemento){
               'valor': valor
             },
           success: function(data){
+            if (data!=true) {
+              $(elemento).attr('checked', false); // Unchecks it
+              alert(data)
+            }
             console.log(data);
           }
       });
