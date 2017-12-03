@@ -63,10 +63,10 @@ jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
-    // ajax da página de inscritos
-    $('.page-template-page-inscritos-php .user_ajax').on('click', function(e){
-      // alert($(this).attr('data-id'));
-      $('#nome-user').html($(this).text());
+
+
+    function carrega_user(id,nome ){
+      $('#nome-user').html(nome);
       $('.candidatos').addClass('desativado');
       $('#links-user').fadeOut();
       $('#user-loading').fadeIn(500);
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
           url: ajax_bza_inscricoes_object.ajaxurl,
           data: {
               'action': 'pegauser', //calls wp_ajax_nopriv_ajaxlogin
-              'id': $(this).attr('data-id')
+              'id': id
             },
           success: function(data){
             console.log(data);
@@ -100,6 +100,15 @@ jQuery(document).ready(function($) {
 
           }
       });
+
+    }
+    // ajax da página de inscritos
+    $('.page-template-page-inscritos-php .user_ajax').on('click', function(e){
+      // alert($(this).attr('data-id'));
+      id=$(this).attr('data-id');
+      nome=$(this).text();
+
+      carrega_user(id,nome)
       e.preventDefault();
     });
 
@@ -162,6 +171,7 @@ jQuery(document).ready(function($) {
             $('#modal-cadastro').fadeOut(500);
             $('.login_overlay').fadeOut(500,function(){
               $('.login_overlay').remove()
+              carrega_user(id,nome )
             });
           }
       });
