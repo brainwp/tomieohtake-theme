@@ -84,7 +84,8 @@ jQuery(document).ready(function($) {
             $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
             $('#links-user #cadastro').append('<div><button class="button button-primary">Ver cadastro</button></div>');
             if (data['modal_inscricao']) {
-              $('#links-user #inscricao').html('<div>'+data['inscricao_completa']+'</div>');
+              $('#links-user #inscricao').html('<div><b>Inscrição - </b>  Completa</div>');
+              // $('#links-user #inscricao').html('<div>'+data['inscricao_completa']+'</div>');
               $('#links-user #inscricao').append('<div><button class="acf-button button button-primary button-large">Ver Inscrição</button></div>');
             }
             else{
@@ -92,8 +93,8 @@ jQuery(document).ready(function($) {
             }
             $('#user-loading').fadeOut(500);
             $('.candidatos').removeClass('desativado');1
-            $('#modal-cadastro').html(data['modal_cadastro']);
-            $('#modal-inscricao').html(data['modal_inscricao']);
+            $('#modal-cadastro').html('<a id="fechar" href="#">X</a>'+data['modal_cadastro']);
+            $('#modal-inscricao').html('<a id="fechar" href="#">X</a>'+data['modal_inscricao']);
             $('#links-user').fadeIn();
 
 
@@ -102,5 +103,69 @@ jQuery(document).ready(function($) {
       e.preventDefault();
     });
 
+    // Clique no cadastro
+
+    $('.page-template-page-inscritos-php #links-user #cadastro').on('click', function(e){
+      $('body').prepend('<div style="display:none" class="login_overlay"></div>');
+      $('.login_overlay').fadeIn(500);
+
+      $('#modal-cadastro').fadeIn();
+      e.preventDefault();
+      $('.page-template-page-inscritos-php #modal-cadastro #fechar').on('click', function(e){
+        $('#modal-cadastro').fadeOut(500);
+        $('.login_overlay').fadeOut(500,function(){
+          $('.login_overlay').remove()
+        });
+        e.preventDefault();
+      });
+    });
+
+
+    // Clique na inscricao
+
+    $('.page-template-page-inscritos-php #links-user #inscricao').on('click', function(e){
+      $('body').prepend('<div style="display:none" class="login_overlay"></div>');
+      $('.login_overlay').fadeIn(500);
+
+      $('#modal-inscricao').fadeIn();
+      e.preventDefault();
+      $('.page-template-page-inscritos-php #modal-inscricao #fechar').on('click', function(e){
+        $('#modal-inscricao').fadeOut(500);
+        $('.login_overlay').fadeOut(500,function(){
+          $('.login_overlay').remove()
+        });
+        e.preventDefault();
+      });
+    });
+
+// Clique no salvar verificacao do rg
+    $('.page-template-page-inscritos-php').on('submit','#form-rg',function(e){
+      // alert('teste');
+      if ($('#rg-verificado-checkbox').is(":checked")){
+        var verificado = 1;
+      }
+      else{
+        var verificado = 0;
+      }
+      console.log(verificado+'ver');
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'salvarg',
+              'verificado': verificado,
+              'id' : $('#user-id-rg').val()
+            },
+          success: function(data){
+            console.log(data);
+            $('#modal-cadastro').fadeOut(500);
+            $('.login_overlay').fadeOut(500,function(){
+              $('.login_overlay').remove()
+            });
+          }
+      });
+      e.preventDefault();
+    });
 
 });

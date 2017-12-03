@@ -108,8 +108,15 @@ form#login-user a.close{
 
 
 /*modal ajax-use*/
-#modal-fundo{
-
+#modal-cadastro, #modal-inscricao{
+  display: none;
+  -ms-transform: translate(-50%); /* IE 9 */
+    -webkit-transform: translate(-50%); /* Safari */
+    transform: translate(-50%);
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top:10%;
 }
 #modal-loading,#user-loading{
   background-image:url('../../images/loader.gif');
@@ -129,4 +136,7 @@ form#login-user a.close{
 }
 .rg-user{
   max-width:300px;
+}
+#inscricao{
+  margin-top:20px;
 }

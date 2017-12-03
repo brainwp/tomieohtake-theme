@@ -19,6 +19,8 @@ function ajax_login_init(){
 }
 add_action( 'wp_ajax_nopriv_pegauser', 'pega_user' );
 add_action( 'wp_ajax_pegauser', 'pega_user' );
+add_action( 'wp_ajax_nopriv_salvarg', 'salva_rg' );
+add_action( 'wp_ajax_salvarg', 'salva_rg' );
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
     add_action('init', 'ajax_login_init');

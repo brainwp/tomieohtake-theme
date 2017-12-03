@@ -41,7 +41,7 @@ get_header('inscricao'); ?>
                   ?>
                   <div id="<?php echo $value->ID ?>" class="candidato">
                     <?php
-                    $user_nome = get_field('nome_completo', 'user_'.$value->ID);
+                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
                     $user_id = $value->ID;
                     ?>
                     <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
