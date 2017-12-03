@@ -79,7 +79,6 @@ jQuery(document).ready(function($) {
               'id': id
             },
           success: function(data){
-            console.log(data);
             $('#links-user #cadastro').html('<div>'+data['perfil_completo']+'</div>');
             $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
             $('#links-user #cadastro').append('<div><button class="button button-primary">Ver cadastro</button></div>');
@@ -103,7 +102,7 @@ jQuery(document).ready(function($) {
 
     }
     // ajax da página de inscritos
-    $('.page-template-page-inscritos-php .user_ajax').on('click', function(e){
+    $('.page-template-page-inscritos-php .user_ajax, .page-template-page-cadastrados-php .user_ajax').on('click', function(e){
       // alert($(this).attr('data-id'));
       id=$(this).attr('data-id');
       nome=$(this).text();
@@ -114,13 +113,13 @@ jQuery(document).ready(function($) {
 
     // Clique no cadastro
 
-    $('.page-template-page-inscritos-php #links-user #cadastro').on('click', function(e){
+    $('.page-template-page-inscritos-php #links-user #cadastro, .page-template-page-cadastrados-php #links-user #cadastro').on('click', function(e){
       $('body').prepend('<div style="display:none" class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
 
       $('#modal-cadastro').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-cadastro #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php #modal-cadastro #fechar, .page-template-page-cadastrados-php #modal-cadastro #fechar').on('click', function(e){
         $('#modal-cadastro').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -132,13 +131,13 @@ jQuery(document).ready(function($) {
 
     // Clique na inscricao
 
-    $('.page-template-page-inscritos-php #links-user #inscricao').on('click', function(e){
+    $('.page-template-page-inscritos-php #links-user #inscricao, .page-template-page-cadastrados-php #links-user #inscricao').on('click', function(e){
       $('body').prepend('<div style="display:none" class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
 
       $('#modal-inscricao').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-inscricao #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php #modal-inscricao #fechar .page-template-page-cadastrados-php #modal-inscricao #fechar').on('click', function(e){
         $('#modal-inscricao').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -160,7 +159,7 @@ function verifica_box(elemento){
 
 
 // Clique no salvar verificacao do rg
-    $('.page-template-page-inscritos-php').on('submit','#form-rg',function(e){
+    $('.page-template-page-inscritos-php, .page-template-page-cadastrados-php').on('submit','#form-rg',function(e){
       // alert('teste');
       var verificado = verifica_box($('#rg-verificado-checkbox'));
       // if ($('#rg-verificado-checkbox').is(":checked")){
@@ -169,7 +168,6 @@ function verifica_box(elemento){
       // else{
       //   var verificado = 0;
       // }
-      console.log(verificado+'ver');
       $.ajax({
           type: 'POST',
           dataType: 'json',
@@ -180,7 +178,6 @@ function verifica_box(elemento){
               'id' : $('#user-id-rg').val()
             },
           success: function(data){
-            console.log(data);
             $('#modal-cadastro').fadeOut(500);
             $('.login_overlay').fadeOut(500,function(){
               $('.login_overlay').remove()
@@ -195,7 +192,6 @@ function verifica_box(elemento){
     $('.page-template-page-inscritos-php .seleciona-candidato').on('click', function(e){
       var valor = verifica_box($(this));
       var elemento = $(this);
-      // console.log(valor);
       $.ajax({
           type: 'POST',
           dataType: 'json',
@@ -210,7 +206,6 @@ function verifica_box(elemento){
               $(elemento).attr('checked', false); // Unchecks it
               alert(data)
             }
-            console.log(data);
           }
       });
     });

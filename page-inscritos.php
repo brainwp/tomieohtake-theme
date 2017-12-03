@@ -28,6 +28,16 @@ get_header('inscricao'); ?>
 					<div class="col-md-6" id="login-preliminar">
 						<h2 class="fullheader-title">Lista</h2>
             <div class="candidatos">
+              <form class="" action="" method="get">
+                <input id="busca-nome" type="text" name="nome" value="">
+                <input type=submit id="label-busca-nome" value="">
+
+
+              </form>
+              <div class="clearfix">
+
+              </div>
+
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
@@ -36,6 +46,15 @@ get_header('inscricao'); ?>
                 $args = array(
   	                'role'         => 'candidato',
                 );
+                if (isset($_GET['nome'])) {
+                  $args['meta_query']= array(
+                      array(
+                          'key' => 'nome_completo',
+                          'value' =>  $_GET['nome'],
+                          'compare' => 'LIKE'
+                      )
+                  );
+                }
                 $candidatos = get_users($args);
                 foreach ($candidatos as $candidato => $value) {
                   ?>
