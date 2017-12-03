@@ -45,7 +45,7 @@ function pega_user(){
         $teste[$nome_campo]=$valor;
       }
     }
-    $checked = (1 == get_user_meta($id, 'rg_verificado', true)) ? 'checked' : ''; 
+    $checked = (1 == get_user_meta($id, 'rg_verificado', true)) ? 'checked' : '';
     $modal_cadastro .= '<form id="form-rg">
     <div class="acf-label">
     <label for="rg-verificado-checkbox">RG verificado</label>
@@ -104,5 +104,11 @@ function pega_user(){
 function salva_rg(){
   $resultado = update_user_meta( $_POST['id'], 'rg_verificado', $_POST['verificado'] );
   echo json_encode(array($_POST, $resultado));
+  die();
+}
+
+function marca_finalista(){
+  update_user_meta( $_POST['id'], 'finalista', $_POST['valor'] );
+  echo json_encode(array($_POST));
   die();
 }

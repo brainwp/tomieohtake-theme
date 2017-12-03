@@ -147,15 +147,28 @@ jQuery(document).ready(function($) {
       });
     });
 
+// funcao erifica se checkbox esta marcado
+function verifica_box(elemento){
+  if (elemento.is(":checked")){
+    return 1;
+  }
+  else{
+    return 0;
+  }
+}
+
+
+
 // Clique no salvar verificacao do rg
     $('.page-template-page-inscritos-php').on('submit','#form-rg',function(e){
       // alert('teste');
-      if ($('#rg-verificado-checkbox').is(":checked")){
-        var verificado = 1;
-      }
-      else{
-        var verificado = 0;
-      }
+      var verificado = verifica_box($('#rg-verificado-checkbox'));
+      // if ($('#rg-verificado-checkbox').is(":checked")){
+      //   var verificado = 1;
+      // }
+      // else{
+      //   var verificado = 0;
+      // }
       console.log(verificado+'ver');
       $.ajax({
           type: 'POST',
@@ -176,6 +189,26 @@ jQuery(document).ready(function($) {
           }
       });
       e.preventDefault();
+    });
+
+    // marca candidato como finalista
+    $('.page-template-page-inscritos-php .seleciona-candidato').on('click', function(e){
+      var valor = verifica_box($(this));
+
+      console.log(valor);
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'marcafinalista',
+              'id': $(this).attr('data-id'),
+              'valor': valor
+            },
+          success: function(data){
+            console.log(data);
+          }
+      });
     });
 
 });
