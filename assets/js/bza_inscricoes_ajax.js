@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
 
       $('#modal-inscricao').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-inscricao #fechar .page-template-page-cadastrados-php #modal-inscricao #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php #modal-inscricao #fechar, .page-template-page-cadastrados-php #modal-inscricao #fechar').on('click', function(e){
         $('#modal-inscricao').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
