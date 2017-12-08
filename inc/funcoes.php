@@ -1,26 +1,28 @@
 <?php
 function bza_inscricoes_scripts() {
     wp_enqueue_style( 'style-bza_inscricoes', get_stylesheet_directory_uri().'/assets/css/bza_inscricoes_style.css' );
-    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
-    wp_enqueue_script( 'ajax-login-script' );
-}
-add_action( 'wp_enqueue_scripts', 'bza_inscricoes_scripts' );
-
-//ajax login
-function ajax_login_init(){
-
-    wp_register_script('ajax-login-script', get_stylesheet_directory_uri() . '/assets/js/ajax-login-script.js', array('jquery') );
-    wp_enqueue_script('ajax-login-script');
-
-    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
+    wp_register_script('ajax-bza_inscricoes', get_stylesheet_directory_uri() . '/assets/js/bza_inscricoes_ajax.js', array('jquery') );
+    wp_enqueue_script( 'ajax-bza_inscricoes' );
+    wp_localize_script( 'ajax-bza_inscricoes', 'ajax_bza_inscricoes_object', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'redirecturl' => home_url(),
         'loadingmessage' => __('Verificando dados...')
     ));
 
+}
+add_action( 'wp_enqueue_scripts', 'bza_inscricoes_scripts' );
+
+//ajax login
+function ajax_login_init(){
     // Enable the user with no privileges to run ajax_login() in AJAX
     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
 }
+add_action( 'wp_ajax_nopriv_pegauser', 'pega_user' );
+add_action( 'wp_ajax_pegauser', 'pega_user' );
+add_action( 'wp_ajax_nopriv_salvarg', 'salva_rg' );
+add_action( 'wp_ajax_salvarg', 'salva_rg' );
+add_action( 'wp_ajax_nopriv_marcafinalista', 'marca_finalista' );
+add_action( 'wp_ajax_marcafinalista', 'marca_finalista' );
 
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
@@ -415,3 +417,29 @@ function email_confirma_user($email){
   // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
 
  }
+
+
+//Verifica se usuário tem inscrição
+//Verifica se usuário tem inscrição
+//Verifica se usuário tem inscrição
+//$args é um array que da forma:
+// array(
+//  'user' => 'id_user',
+//  'user_role' => 'role',
+//  'cpt' => 'slug_cpt',
+//  'tax' => array(
+//    'tax_1'=>tax,
+//    'tax_2'=>tax2,
+//   ),
+//  'meta_user' => array(
+//    'meta_user_1'=>'meta',
+//    'meta_user_2'=>'meta_2',
+//   ),
+//  'meta_post' => array(
+//    'meta_post_1'=>'meta',
+//    'meta_post_2'=>'meta_2',
+//   ),
+// )
+function verifica_cpt($args){
+
+}

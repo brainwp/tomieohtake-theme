@@ -50,3 +50,104 @@ form#login-user a.close{
 .logged-in .acf-field-59fc6a2a127ad {
   display:none;
 }
+
+
+/*Listagem de usuarios*/
+.candidatos{
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+.candidato input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+
+.candidato label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+
+.candidato  label:before {
+  margin: 0;
+  margin-top: -5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 20px;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+}
+.candidato{
+  border: solid 1px black;
+  padding: 5px 10px;
+  margin: 10px 0;
+
+}
+.candidato  input:checked ~ label:before {
+  color: #FFC107;
+}
+
+.candidato  label:hover ~ label:before {
+  color: #ffdb70;
+}
+
+.candidato  label:hover:before {
+  color: #FFC107;
+}
+
+
+/*modal ajax-use*/
+#modal-cadastro, #modal-inscricao{
+  display: none;
+  -ms-transform: translate(-50%); /* IE 9 */
+    -webkit-transform: translate(-50%); /* Safari */
+    transform: translate(-50%);
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top:10%;
+}
+#modal-loading,#user-loading{
+  background-image:url('../../images/loader.gif');
+  height:149px;
+  width:218px;
+  display: none;
+  margin: 0 auto;
+
+}
+.desativado {
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
+}
+.rg-user{
+  max-width:300px;
+}
+#inscricao{
+  margin-top:20px;
+}
+#busca-nome{
+  float:left;
+}
+#label-busca-nome{
+  background-color: transparent;
+  float:left;
+  width: 50px;
+  height:50px;
+  background-size: contain;
+  background-image:url('../../images/img-search.png');
+}
