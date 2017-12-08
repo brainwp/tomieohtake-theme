@@ -21,7 +21,7 @@ get_header('inscricao'); ?>
 		<div id="content-inside" class="container no-sidebar">
 		<br />
 		<h1 class="fullheader-title">
-			Cdastrados
+			Cadastrados
 		</h1>
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">

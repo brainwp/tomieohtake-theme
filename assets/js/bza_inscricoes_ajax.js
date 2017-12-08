@@ -107,7 +107,9 @@ jQuery(document).ready(function($) {
       id=$(this).attr('data-id');
       nome=$(this).text();
 
-      carrega_user(id,nome)
+      carrega_user(id,nome);
+      window.scrollTo(0, 0);
+
       e.preventDefault();
     });
 
@@ -119,7 +121,7 @@ jQuery(document).ready(function($) {
 
       $('#modal-cadastro').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-cadastro #fechar, .page-template-page-cadastrados-php #modal-cadastro #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php #modal-cadastro #fechar, .page-template-page-cadastrados-php #modal-cadastro #fechar,  .page-template-page-finalistas-php #modal-cadastro #fechar').on('click', function(e){
         $('#modal-cadastro').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -137,7 +139,7 @@ jQuery(document).ready(function($) {
 
       $('#modal-inscricao').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-inscricao #fechar, .page-template-page-cadastrados-php #modal-inscricao #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php #modal-inscricao #fechar, .page-template-page-cadastrados-php #modal-inscricao #fechar, .page-template-page-finalistas-php #modal-inscricao #fechar').on('click', function(e){
         $('#modal-inscricao').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -208,6 +210,82 @@ function verifica_box(elemento){
             }
           }
       });
+
+    });
+    $('.page-template-page-finalistas-php .inscricao-finalista').on('click', function(e){
+      $('.candidatos').addClass('desativado');
+      $('body').prepend('<div class="login_overlay"></div>');
+      $('.login_overlay').fadeIn(500);
+      $('#user-loading').fadeIn(500);
+      id=$(this).attr('data-id');
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'pegauser', //calls wp_ajax_nopriv_ajaxlogin
+              'id': id
+            },
+          success: function(data){
+            window.scrollTo(0, 0);
+
+            $('#links-user #cadastro').html('<div>'+data['perfil_completo']+'</div>');
+            $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
+            if (data['modal_inscricao']) {
+              $('#modal-inscricao').html('<a id="fechar" href="#">X</a>'+data['modal_inscricao']);
+            }
+            else{
+              $('#modal-inscricao').html('<a id="fechar" href="#">X</a><div>O candidato não fez uma inscrição</div>');
+            }
+            $('.candidatos').removeClass('desativado');
+            $('#user-loading').fadeOut(500);
+            $('#modal-inscricao').fadeIn();
+            // $('#links-user').fadeIn();
+            $('.page-template-page-finalistas-php #modal-inscricao #fechar').on('click', function(e){
+              $('#modal-inscricao').fadeOut(500);
+              $('.login_overlay').fadeOut(500,function(){
+                $('.login_overlay').remove()
+              });
+              e.preventDefault();
+            });
+          }
+      });
+      e.preventDefault();
     });
 
+    $('.page-template-page-finalistas-php .cadastro-finalista').on('click', function(e){
+      $('.candidatos').addClass('desativado');
+      $('body').prepend('<div class="login_overlay"></div>');
+      $('.login_overlay').fadeIn(500);
+      $('#user-loading').fadeIn(500);
+      id=$(this).attr('data-id');
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'pegauser', //calls wp_ajax_nopriv_ajaxlogin
+              'id': id
+            },
+          success: function(data){
+            window.scrollTo(0, 0);
+
+            $('#links-user #cadastro').html('<div>'+data['perfil_completo']+'</div>');
+            $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
+            $('#modal-cadastro').html('<a id="fechar" href="#">X</a>'+data['modal_cadastro']+'<div>'+data['perfil_completo']+'</div>'+'<div>'+data['rg_verificado']+'</div>');
+            $('.candidatos').removeClass('desativado');
+            $('#user-loading').fadeOut(500);
+            $('#modal-cadastro').fadeIn();
+            // $('#links-user').fadeIn();
+            $('.page-template-page-finalistas-php #modal-cadastro #fechar').on('click', function(e){
+              $('#modal-cadastro').fadeOut(500);
+              $('.login_overlay').fadeOut(500,function(){
+                $('.login_overlay').remove()
+              });
+              e.preventDefault();
+            });
+          }
+      });
+      e.preventDefault();
+    });
 });

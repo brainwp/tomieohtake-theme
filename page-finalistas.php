@@ -53,8 +53,11 @@ get_header('inscricao'); ?>
                     <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
                       <?php echo $user_nome; ?>
                     </a>
+										<button data-id="<?php echo $user_id;?>" class="button button-primary cadastro-finalista">Ver cadastro</button>
+										<button data-id="<?php echo $user_id;?>" class="acf-button button button-primary button-large inscricao-finalista">Ver Inscrição</button>
+
                     <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
-                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?>/>
+                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?> disabled/>
                       <label for="user_<?php echo $user_id;?>">
                       </label>
                       <br>
@@ -75,7 +78,7 @@ get_header('inscricao'); ?>
 	</div><!-- #content -->
   <div id="modal">
     <div id="modal-fundo">
-      <div id="modal-loading" data-state=""></div>
+      <div id="user-loading" data-state=""></div>
       <div id="modal-cadastro" data-state=""></div>
       <div id="modal-inscricao" data-state=""></div>
     </div>
