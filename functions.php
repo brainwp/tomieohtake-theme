@@ -50,20 +50,44 @@ if ( ! function_exists( 'coletivo_site_header' ) ) {
                             <?php wp_nav_menu(array('theme_location' => 'primary', 'container' => '', 'items_wrap' => '%3$s')); ?>
                         </ul>
                     </nav>
-                    <?php if (is_user_logged_in()) {?>
-                      <nav id="user-navigation" class="main-navigation" role="navigation">
-                          <ul class="user-menu coletivo-menu">
-                            <li>Olá, <?php
-                            	$current_user = wp_get_current_user();
-                              // print_r($current_user);
-                            	$nome= km_get_users_name($current_user->ID) ;
-                              echo $nome;
-                              ?>.</li>
-                              <li id="user-menu-inscricao" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/inscricao">Inscrição</a></li>
-                              <li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Cadastro</a></li>
-                          </ul>
-                      </nav>
-                    <?php } ?>
+                    <?php
+                    if (is_user_logged_in()) {
+                      if (current_user_can( 'jurado')) {?>
+
+                        <nav id="user-navigation" class="main-navigation" role="navigation">
+                            <ul class="user-menu coletivo-menu">
+                              <li>Olá, <?php
+                              	$current_user = wp_get_current_user();
+                                // print_r($current_user);
+                              	$nome= km_get_users_name($current_user->ID) ;
+                                echo $nome;
+                                ?>.</li>
+                                <li id="user-menu-inscritos" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/inscritos">Inscritos</a></li>
+                                <li id="user-menu-cadastrados" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastrados">Cadastrados</a></li>
+                                <li id="user-menu-finalistas" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/finalistas">Finalistas</a></li>
+                            </ul>
+                        </nav>
+
+                      <?php
+                      }
+                      else{
+                        ?>
+                        <nav id="user-navigation" class="main-navigation" role="navigation">
+                            <ul class="user-menu coletivo-menu">
+                              <li>Olá, <?php
+                              	$current_user = wp_get_current_user();
+                                // print_r($current_user);
+                              	$nome= km_get_users_name($current_user->ID) ;
+                                echo $nome;
+                                ?>.</li>
+                                <li id="user-menu-inscricao" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/inscricao">Inscrição</a></li>
+                                <li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Cadastro</a></li>
+                            </ul>
+                        </nav>
+                      <?php
+                      }
+
+                    } ?>
 
                     <!-- #site-navigation -->
                 </div>

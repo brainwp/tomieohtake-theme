@@ -1,7 +1,7 @@
 <?php acf_form_head(); ?>
 <?php
 /**
- *Template Name: Artistas Inscritos
+ *Template Name: Artistas Finalistas
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package coletivo
@@ -21,25 +21,12 @@ get_header('inscricao'); ?>
 		<div id="content-inside" class="container no-sidebar">
 		<br />
 		<h1 class="fullheader-title">
-			Inscritos
+			Finalistas selecionados
 		</h1>
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
-					<div class="col-md-6" id="login-preliminar">
-						<h2 class="fullheader-title">Lista</h2>
+					<div class="col-md-12" id="login-preliminar">
             <div class="candidatos">
-              <form class="" action="" method="get">
-                <input id="busca-nome" type="text" name="nome" value="">
-                <input type=submit id="label-busca-nome" value="">
-
-
-              </form>
-              <a href="<?php echo get_permalink(); ?>">Ver todos</a>
-
-              <div class="clearfix">
-
-              </div>
-
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
@@ -48,15 +35,13 @@ get_header('inscricao'); ?>
                 $args = array(
   	                'role'         => 'candidato',
                 );
-                if (isset($_GET['nome'])) {
                   $args['meta_query']= array(
                       array(
-                          'key' => 'nome_completo',
-                          'value' =>  $_GET['nome'],
-                          'compare' => 'LIKE'
+                          'key' => 'finalista',
+                          'value' =>  1,
+
                       )
                   );
-                }
                 $candidatos = get_users($args);
                 foreach ($candidatos as $candidato => $value) {
                   ?>
@@ -68,8 +53,11 @@ get_header('inscricao'); ?>
                     <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
                       <?php echo $user_nome; ?>
                     </a>
+										<button data-id="<?php echo $user_id;?>" class="button button-primary cadastro-finalista">Ver cadastro</button>
+										<button data-id="<?php echo $user_id;?>" class="acf-button button button-primary button-large inscricao-finalista">Ver Inscrição</button>
+
                     <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
-                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?>/>
+                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?> disabled/>
                       <label for="user_<?php echo $user_id;?>">
                       </label>
                       <br>
@@ -84,34 +72,13 @@ get_header('inscricao'); ?>
               ?>
             </div>
 					</div>
-					<div class="col-md-6" id="mostra-user-ajax">
-					<h2 class="fullheader-title">Inscrição</h2>
-          <div id="dados-user">
-            <h3 id="nome-user">Escolha um usuário para visualizar</h3>
-            <div id="links-user">
-              <div id="cadastro">
-                Clique em um dos úsuários da lista para carregar suas informações.
-              </div>
-              <div id="inscricao">
-              </div>
-            </div>
-            <div id="user-loading">
-
-            </div>
-          </div>
-
-
-					</div>
-
-
-
 				</main><!-- #main -->
 			</div><!-- #primary -->
 		</div><!--#content-inside -->
 	</div><!-- #content -->
   <div id="modal">
     <div id="modal-fundo">
-      <div id="modal-loading" data-state=""></div>
+      <div id="user-loading" data-state=""></div>
       <div id="modal-cadastro" data-state=""></div>
       <div id="modal-inscricao" data-state=""></div>
     </div>
