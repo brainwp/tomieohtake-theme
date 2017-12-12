@@ -102,9 +102,9 @@ form#login-user a.close{
   color: #ffdb70;
 }
 
-.candidato  label:hover:before {
+/*.candidato  label:hover:before {
   color: #FFC107;
-}
+}*/
 
 
 /*modal ajax-use*/
