@@ -120,3 +120,31 @@ function marca_finalista(){
   // }
     die();
 }
+// pega usuario com base nos metas
+function query_user_ajax(){
+  $args = array(
+      'role'         => 'candidato',
+  );
+  $args['meta_query']= array();
+  $metas=$_POST['metas'];
+  $html ='';
+
+  foreach ($metas as $key => $value) {
+    $query = array(
+            'key'		=> $key,
+            'value'		=> $value,
+            'compare'	=> 'IN',
+        );
+    array_push(  $args['meta_query'], $query );
+
+  }
+  //
+  $candidatos = get_users($args);
+  foreach ($candidatos as $candidato => $value) {
+    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
+    $html .= $user_nome.'<br>';
+  }
+  echo json_encode($html);
+
+  die();
+}

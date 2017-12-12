@@ -289,4 +289,30 @@ function verifica_box(elemento){
       });
       e.preventDefault();
     });
+
+    $('.page-template-page-inscritos-php #uf').on('change', function(e){
+      var elemento = $(this);
+      nome = elemento.attr('name');
+      valor = elemento.val();
+      var metas={
+        'cidade__estado__pais_de_residencia' : valor,
+      }
+      console.log(metas);
+
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'queryuser',
+              'metas': metas,
+            },
+          success: function(data){
+            console.log(data);
+          }
+        });
+      });
+
+
+
 });

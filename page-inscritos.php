@@ -39,7 +39,36 @@ get_header('inscricao'); ?>
               <div class="clearfix">
 
               </div>
-
+							<select name="cidade__estado__pais_de_residencia" id="uf">
+								<option value="">Selecione</option>
+								<option value="AC">AC</option>
+								<option value="AL">AL</option>
+								<option value="AM">AM</option>
+								<option value="AP">AP</option>
+								<option value="BA">BA</option>
+								<option value="CE">CE</option>
+								<option value="DF">DF</option>
+								<option value="ES">ES</option>
+								<option value="GO">GO</option>
+								<option value="MA">MA</option>
+								<option value="MG">MG</option>
+								<option value="MS">MS</option>
+								<option value="MT">MT</option>
+								<option value="PA">PA</option>
+								<option value="PB">PB</option>
+								<option value="PE">PE</option>
+								<option value="PI">PI</option>
+								<option value="PR">PR</option>
+								<option value="RJ">RJ</option>
+								<option value="RN">RN</option>
+								<option value="RS">RS</option>
+								<option value="RO">RO</option>
+								<option value="RR">RR</option>
+								<option value="SC">SC</option>
+								<option value="SE">SE</option>
+								<option value="SP">SP</option>
+								<option value="TO">TO</option>
+							 </select>
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
@@ -48,15 +77,17 @@ get_header('inscricao'); ?>
                 $args = array(
   	                'role'         => 'candidato',
                 );
+								$args['meta_query']= array();
+
                 if (isset($_GET['nome'])) {
-                  $args['meta_query']= array(
-                      array(
+                      $nome=array(
                           'key' => 'nome_completo',
                           'value' =>  $_GET['nome'],
                           'compare' => 'LIKE'
-                      )
-                  );
+                      );
+											array_push($args['meta_query'], $nome);
                 }
+
                 $candidatos = get_users($args);
                 foreach ($candidatos as $candidato => $value) {
                   ?>
