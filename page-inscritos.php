@@ -27,6 +27,7 @@ get_header('inscricao'); ?>
 				<main id="main" class="site-main" role="main">
 					<div class="col-md-6" id="login-preliminar">
 						<h2 class="fullheader-title">Lista</h2>
+              <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a>
             <div class="candidatos">
               <form class="" action="" method="get">
                 <input id="busca-nome" type="text" name="nome" value="">
@@ -34,7 +35,6 @@ get_header('inscricao'); ?>
 
 
               </form>
-              <a href="<?php echo get_permalink(); ?>">Ver todos</a>
 
               <div class="clearfix">
 

@@ -89,7 +89,7 @@ form#login-user a.close{
 
 }
 .candidato{
-  border: solid 1px black;
+  border-bottom: solid 1px black;
   padding: 5px 10px;
   margin: 10px 0;
 
