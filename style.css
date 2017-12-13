@@ -251,7 +251,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     margin-right: 4em;
 }
 
-#user-menu-inscricao a, #user-menu-cadastro a {
+#user-menu-inscricao a, #user-menu-cadastro a, #user-menu-inscritos a, #user-menu-finalistas a {
     color: #FFF;
     background: #eb008b;
     border-radius: 4px;

@@ -34,8 +34,40 @@ get_header('inscricao'); ?>
 								<input type=submit id="label-busca-nome" value="">
 							</form>
 
-							<div class="clearfix">
-							</div>
+						<div class="clearfix">
+						</div>
+						<select name="cidade__estado__pais_de_residencia" id="uf">
+							<option value="">Selecione</option>
+							<option value="AC/Acre">AC</option>
+							<option value="AL/Alagoas">AL</option>
+							<option value="AM/Amapá">AM</option>
+							<option value="AP/Amazonas">AP</option>
+							<option value="BA/Bahia">BA</option>
+							<option value="CE/Ceará">CE</option>
+							<option value="DF/Distrito Federal">DF</option>
+							<option value="ES/Espírito Santo">ES</option>
+							<option value="GO/Goiás">GO</option>
+							<option value="MA/Maranhão">MA</option>
+							<option value="MG/Mato Grosso">MG</option>
+							<option value="MS/Mato Grosso do Sul">MS</option>
+							<option value="MT/Minas Gerais">MT</option>
+							<option value="PA/Pará">PA</option>
+							<option value="PB/Paraíba">PB</option>
+							<option value="PE/Paraná">PE</option>
+							<option value="PI/Pernambuco">PI</option>
+							<option value="PR/Piauí">PR</option>
+							<option value="RJ/Rio de Janeiro">RJ</option>
+							<option value="RN/Rio Grande do Sul">RN</option>
+							<option value="RS/Rio Grande do Norte">RS</option>
+							<option value="RO/Rondônia">RO</option>
+							<option value="RR/Roraima">RR</option>
+							<option value="SC/Santa Catarina">SC</option>
+							<option value="SE/Sergipe">SE</option>
+							<option value="SP/São Paulo">SP</option>
+							<option value="TO/Tocantins">TO</option>
+						</select>
+            <div class="candidatos">
+
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
@@ -71,7 +103,7 @@ get_header('inscricao'); ?>
 										?>
 										<div id="<?php echo $value->ID ?>" class="candidato">
 											<?php
-											$user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
+											$user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
 											$user_id = $value->ID;
 											?>
 											<a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">

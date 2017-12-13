@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
 
     }
     // ajax da página de inscritos
-    $('.page-template-page-inscritos-php .user_ajax, .page-template-page-cadastrados-php .user_ajax').on('click', function(e){
+    $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php ').on('click', '.user_ajax', function(e){
       // alert($(this).attr('data-id'));
       id=$(this).attr('data-id');
       nome=$(this).text();
@@ -115,13 +115,13 @@ jQuery(document).ready(function($) {
 
     // Clique no cadastro
 
-    $('.page-template-page-inscritos-php #links-user #cadastro, .page-template-page-cadastrados-php #links-user #cadastro').on('click', function(e){
+    $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php ').on('click', '#cadastro',function(e){
       $('body').prepend('<div style="display:none" class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
 
       $('#modal-cadastro').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-cadastro #fechar, .page-template-page-cadastrados-php #modal-cadastro #fechar,  .page-template-page-finalistas-php #modal-cadastro #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php ,  .page-template-page-finalistas-php ').on('click',' #fechar', function(e){
         $('#modal-cadastro').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -133,13 +133,13 @@ jQuery(document).ready(function($) {
 
     // Clique na inscricao
 
-    $('.page-template-page-inscritos-php #links-user #inscricao, .page-template-page-cadastrados-php #links-user #inscricao').on('click', function(e){
+    $('.page-template-page-inscritos-php  , .page-template-page-cadastrados-php').on('click', '#inscricao', function(e){
       $('body').prepend('<div style="display:none" class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
 
       $('#modal-inscricao').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php #modal-inscricao #fechar, .page-template-page-cadastrados-php #modal-inscricao #fechar, .page-template-page-finalistas-php #modal-inscricao #fechar').on('click', function(e){
+      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php , .page-template-page-finalistas-php ').on('click','#fechar' ,function(e){
         $('#modal-inscricao').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -180,6 +180,8 @@ function verifica_box(elemento){
               'id' : $('#user-id-rg').val()
             },
           success: function(data){
+            window.scrollTo(0, 0);
+
             $('#modal-cadastro').fadeOut(500);
             $('.login_overlay').fadeOut(500,function(){
               $('.login_overlay').remove()
@@ -191,7 +193,7 @@ function verifica_box(elemento){
     });
 
     // marca candidato como finalista
-    $('.page-template-page-inscritos-php .seleciona-candidato').on('click', function(e){
+    $('.page-template-page-inscritos-php ').on('click','.seleciona-candidato', function(e){
       var valor = verifica_box($(this));
       var elemento = $(this);
       $.ajax({
@@ -213,7 +215,7 @@ function verifica_box(elemento){
       });
 
     });
-    $('.page-template-page-finalistas-php .inscricao-finalista').on('click', function(e){
+    $('.page-template-page-finalistas-php ').on('click', '.inscricao-finalista', function(e){
       $('.candidatos').addClass('desativado');
       $('body').prepend('<div class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
@@ -242,7 +244,7 @@ function verifica_box(elemento){
             $('#user-loading').fadeOut(500);
             $('#modal-inscricao').fadeIn();
             // $('#links-user').fadeIn();
-            $('.page-template-page-finalistas-php #modal-inscricao #fechar').on('click', function(e){
+            $('.page-template-page-finalistas-php ').on('click', '#fechar', function(e){
               $('#modal-inscricao').fadeOut(500);
               $('.login_overlay').fadeOut(500,function(){
                 $('.login_overlay').remove()
@@ -254,7 +256,7 @@ function verifica_box(elemento){
       e.preventDefault();
     });
 
-    $('.page-template-page-finalistas-php .cadastro-finalista').on('click', function(e){
+    $('.page-template-page-finalistas-php ').on('click','.cadastro-finalista', function(e){
       $('.candidatos').addClass('desativado');
       $('body').prepend('<div class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
@@ -278,7 +280,7 @@ function verifica_box(elemento){
             $('#user-loading').fadeOut(500);
             $('#modal-cadastro').fadeIn();
             // $('#links-user').fadeIn();
-            $('.page-template-page-finalistas-php #modal-cadastro #fechar').on('click', function(e){
+            $('.page-template-page-finalistas-php ').on('click', '#fechar', function(e){
               $('#modal-cadastro').fadeOut(500);
               $('.login_overlay').fadeOut(500,function(){
                 $('.login_overlay').remove()
@@ -289,4 +291,40 @@ function verifica_box(elemento){
       });
       e.preventDefault();
     });
+
+    $('.page-template-page-inscritos-php #uf, .page-template-page-cadastrados-php #uf').on('change', function(e){
+      $('.candidato').remove();
+      $('#dados-user').html(' <h3 id="nome-user">Escolha um usuário para visualizar</h3><div id="links-user"><div id="cadastro">Clique em um dos úsuários da lista para carregar suas informações.</div><div id="inscricao"></div></div><div id="user-loading"></div>')
+      var elemento = $(this);
+      nome = elemento.attr('name');
+      valor = elemento.val();
+      if ($('body').hasClass('page-template-page-cadastrados-php')) {
+        page='cadastrados';
+      }
+      else{
+        page='inscritos';
+      }
+      var metas={
+        'cidade__estado__pais_de_residencia' : valor,
+      }
+      console.log(metas);
+
+      $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          url: ajax_bza_inscricoes_object.ajaxurl,
+          data: {
+              'action': 'queryuser',
+              'metas': metas,
+              'page': page
+            },
+          success: function(data){
+            console.log(data);
+            $('.candidatos').append(data['html'])
+          }
+        });
+      });
+
+
+
 });

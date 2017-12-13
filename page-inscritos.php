@@ -36,9 +36,40 @@ get_header('inscricao'); ?>
 
               </form>
 
-              <div class="clearfix">
+						<div class="clearfix">
 
-              </div>
+						</div>
+						<select name="cidade__estado__pais_de_residencia" id="uf">
+							<option value="">Estado</option>
+							<option value="AC/Acre">AC</option>
+							<option value="AL/Alagoas">AL</option>
+							<option value="AM/Amapá/Amapa">AM</option>
+							<option value="AP/Amazonas">AP</option>
+							<option value="BA/Bahia">BA</option>
+							<option value="CE/Ceará/Ceara">CE</option>
+							<option value="DF/Distrito Federal">DF</option>
+							<option value="ES/Espírito Santo/Espirito Santo">ES</option>
+							<option value="GO/Goiás/Goias">GO</option>
+							<option value="MA/Maranhão/Maranhao">MA</option>
+							<option value="MG/Mato Grosso">MG</option>
+							<option value="MS/Mato Grosso do Sul">MS</option>
+							<option value="MT/Minas Gerais">MT</option>
+							<option value="PA/Pará/Para">PA</option>
+							<option value="PB/Paraíba/Paraiba">PB</option>
+							<option value="PE/Paraná/Parana">PE</option>
+							<option value="PI/Pernambuco">PI</option>
+							<option value="PR/Piauí/Piaui">PR</option>
+							<option value="RJ/Rio de Janeiro">RJ</option>
+							<option value="RN/Rio Grande do Sul">RN</option>
+							<option value="RS/Rio Grande do Norte">RS</option>
+							<option value="RO/Rondônia/Rondonia">RO</option>
+							<option value="RR/Roraima">RR</option>
+							<option value="SC/Santa Catarina">SC</option>
+							<option value="SE/Sergipe">SE</option>
+							<option value="SP/São Paulo/Sao Paulo">SP</option>
+							<option value="TO/Tocantins">TO</option>
+						</select>
+            <div class="candidatos">
 
   						<?php
               // add_user_meta( 212, 'perfil_completo', '1', true );
@@ -48,38 +79,54 @@ get_header('inscricao'); ?>
                 $args = array(
   	                'role'         => 'candidato',
                 );
+								$args['meta_query']= array();
+
                 if (isset($_GET['nome'])) {
-                  $args['meta_query']= array(
-                      array(
+                      $nome=array(
                           'key' => 'nome_completo',
                           'value' =>  $_GET['nome'],
                           'compare' => 'LIKE'
-                      )
-                  );
+                      );
+											array_push($args['meta_query'], $nome);
                 }
+
                 $candidatos = get_users($args);
                 foreach ($candidatos as $candidato => $value) {
-                  ?>
-                  <div id="<?php echo $value->ID ?>" class="candidato">
-                    <?php
-                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
-                    $user_id = $value->ID;
-                    ?>
-                    <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
-                      <?php echo $user_nome; ?>
-                    </a>
-                    <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
-                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?>/>
-                      <label for="user_<?php echo $user_id;?>">
-                      </label>
-                      <br>
+									$args = array(
+										'post_type'              => array( 'bza_inscricoes' ),
+										'author'            => $value->ID,
+										'tax_query' => array(
+											array(
+												'taxonomy' => 'category',
+												'field'    => 'name',
+												'terms'    => 'Prêmio EDP nas Artes',
+											),
+										),
+									);
+									$query = new WP_Query( $args );
+									if($query->post_count != 0 ){
+	                  ?>
+	                  <div id="<?php echo $value->ID ?>" class="candidato">
+	                    <?php
+	                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
+	                    $user_id = $value->ID;
+	                    ?>
+	                    <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
+	                      <?php echo $user_nome; ?>
+	                    </a>
+	                    <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
+	                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?>/>
+	                      <label for="user_<?php echo $user_id;?>">
+	                      </label>
+	                      <br>
 
-                    <?php
-                    // print_r($value->ID);
-                    // echo "mais uma<br>";
-                    ?>
-                </div>
-                <?php
+	                    <?php
+	                    // print_r($value->ID);
+	                    // echo "mais uma<br>";
+	                    ?>
+	                	</div>
+	                <?php
+									}
                 }
               ?>
             </div>

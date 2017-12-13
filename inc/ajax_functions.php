@@ -120,3 +120,90 @@ function marca_finalista(){
   // }
     die();
 }
+// pega usuario com base nos metas
+function query_user_ajax(){
+  $args = array(
+      'role'         => 'candidato',
+  );
+  $args['meta_query']= array('relation' => 'OR');
+  $metas=$_POST['metas'];
+  $html ='';
+  $response = array();
+
+
+  foreach ($metas as $key => $value) {
+    $estados=explode('/', $value);
+
+    foreach ($estados as $estado) {
+
+        $query = array(
+              'key'		=> $key,
+              'value'		=> $estado,
+              'compare'	=> 'LIKE',
+          );
+      array_push($args['meta_query'], $query );
+    }
+      $response['args']= $args;
+
+  }
+
+  //
+  $candidatos = get_users($args);
+  if (!$candidatos) {
+    $response['html'] = '<div class="candidato"> não existem candidatos do estado.</div>';
+    echo json_encode($response);
+
+    die();
+  }
+  foreach ($candidatos as $candidato => $value) {
+      $args = array(
+        'post_type'              => array( 'bza_inscricoes' ),
+        'author'            => $value->ID,
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'category',
+            'field'    => 'name',
+            'terms'    => 'Prêmio EDP nas Artes',
+          ),
+        ),
+      );
+      $query = new WP_Query( $args );
+      if($query->post_count != 0 ){
+        $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
+        $inscritos .= '<div id="'.$value->ID.'" class="candidato">';
+        $user_id = $value->ID;
+        $inscritos .= '  <a href="#" class="user_ajax" data-id="'.$user_id.'">';
+        $inscritos .=  $user_nome;
+        $inscritos .=  '</a>';
+        $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';
+        $inscritos .=  '<input class="seleciona-candidato" type="checkbox" data-id="'.$user_id.'" id="user_'. $user_id.'"  value="1" '. $checked.'/>';
+        $inscritos .=  '  <label for="user_'.$user_id.'">';
+        $inscritos .=  '   </div>';
+      }
+      else{
+        $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
+        $cadastrados .= '<div id="'.$value->ID.'" class="candidato">';
+        $user_id = $value->ID;
+        $cadastrados .= '  <a href="#" class="user_ajax" data-id="'.$user_id.'">';
+        $cadastrados .=  $user_nome;
+        $cadastrados .=  '</a>';
+        $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';
+        $cadastrados .=  '<input class="seleciona-candidato" type="checkbox" data-id="'.$user_id.'" id="user_'. $user_id.'"  value="1" '. $checked.'/>';
+        $cadastrados .=  '  <label for="user_'.$user_id.'">';
+        $cadastrados .=  '   </div>';
+      }
+
+
+  }
+  if ($_POST['page'] == 'cadastrados') {
+    $html = $cadastrados;
+  }
+  else{
+    $html = $inscritos;
+
+  }
+  $response['html'] = $html;
+  echo json_encode($response);
+
+  die();
+}

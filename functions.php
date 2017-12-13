@@ -63,8 +63,7 @@ if ( ! function_exists( 'coletivo_site_header' ) ) {
                                 echo $nome;
                                 ?>.</li>
                                 <li id="user-menu-inscritos" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/inscritos">Inscritos</a></li>
-                                <li id="user-menu-cadastrados" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastrados">Cadastrados</a></li>
-                                <li id="user-menu-finalistas" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/finalistas">Finalistas</a></li>
+                                <li id="user-menu-finalistas" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/finalistas">Selecionados</a></li>
                             </ul>
                         </nav>
 
