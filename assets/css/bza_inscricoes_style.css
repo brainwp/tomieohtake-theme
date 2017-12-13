@@ -162,3 +162,6 @@ form#login-user a.close{
 .page-template-page-finalistas-php .user_ajax{
   pointer-events: none;
 }
+.page-template-page-cadastrados-php .candidato label{
+  display: none;
+}
