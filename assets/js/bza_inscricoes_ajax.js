@@ -204,10 +204,11 @@ function verifica_box(elemento){
               'valor': valor
             },
           success: function(data){
-            if (data!=true) {
-              $(elemento).attr('checked', false); // Unchecks it
-              alert(data)
-            }
+            // if (data!=true) {
+            //   $(elemento).attr('checked', false); // Unchecks it
+            // }
+            console.log(data)
+
           }
       });
 

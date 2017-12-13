@@ -102,9 +102,9 @@ form#login-user a.close{
   color: #ffdb70;
 }
 
-.candidato  label:hover:before {
+/*.candidato  label:hover:before {
   color: #FFC107;
-}
+}*/
 
 
 /*modal ajax-use*/
@@ -161,5 +161,4 @@ form#login-user a.close{
 }
 .page-template-page-finalistas-php .user_ajax{
   pointer-events: none;
-
 }
