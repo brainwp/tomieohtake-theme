@@ -26,47 +26,45 @@ get_header('inscricao'); ?>
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
             <div class="candidatos col-md-6">
-            <h2 class="fullheader-title">Lista</h2>
-              <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a>
+            <h2 class="fullheader-title">Lista <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a></h2>
               <form class="" action="" method="get">
                 <input id="busca-nome" type="text" name="nome" value="">
-                <input type=submit id="label-busca-nome" value="">
-
-
+                <input type="submit" id="label-busca-nome" value="">
+                <select name="cidade__estado__pais_de_residencia" id="uf">
+                  <option value="">Estado</option>
+                  <option value="AC/Acre">AC</option>
+                  <option value="AL/Alagoas">AL</option>
+                  <option value="AM/Amapá/Amapa">AM</option>
+                  <option value="AP/Amazonas">AP</option>
+                  <option value="BA/Bahia">BA</option>
+                  <option value="CE/Ceará/Ceara">CE</option>
+                  <option value="DF/Distrito Federal">DF</option>
+                  <option value="ES/Espírito Santo/Espirito Santo">ES</option>
+                  <option value="GO/Goiás/Goias">GO</option>
+                  <option value="MA/Maranhão/Maranhao">MA</option>
+                  <option value="MG/Mato Grosso">MG</option>
+                  <option value="MS/Mato Grosso do Sul">MS</option>
+                  <option value="MT/Minas Gerais">MT</option>
+                  <option value="PA/Pará/Para">PA</option>
+                  <option value="PB/Paraíba/Paraiba">PB</option>
+                  <option value="PE/Paraná/Parana">PE</option>
+                  <option value="PI/Pernambuco">PI</option>
+                  <option value="PR/Piauí/Piaui">PR</option>
+                  <option value="RJ/Rio de Janeiro">RJ</option>
+                  <option value="RN/Rio Grande do Sul">RN</option>
+                  <option value="RS/Rio Grande do Norte">RS</option>
+                  <option value="RO/Rondônia/Rondonia">RO</option>
+                  <option value="RR/Roraima">RR</option>
+                  <option value="SC/Santa Catarina">SC</option>
+                  <option value="SE/Sergipe">SE</option>
+                  <option value="SP/São Paulo/Sao Paulo">SP</option>
+                  <option value="TO/Tocantins">TO</option>
+                </select>
               </form>
 
 						<div class="clearfix">
 						</div>
-						<select name="cidade__estado__pais_de_residencia" id="uf">
-							<option value="">Estado</option>
-							<option value="AC/Acre">AC</option>
-							<option value="AL/Alagoas">AL</option>
-							<option value="AM/Amapá/Amapa">AM</option>
-							<option value="AP/Amazonas">AP</option>
-							<option value="BA/Bahia">BA</option>
-							<option value="CE/Ceará/Ceara">CE</option>
-							<option value="DF/Distrito Federal">DF</option>
-							<option value="ES/Espírito Santo/Espirito Santo">ES</option>
-							<option value="GO/Goiás/Goias">GO</option>
-							<option value="MA/Maranhão/Maranhao">MA</option>
-							<option value="MG/Mato Grosso">MG</option>
-							<option value="MS/Mato Grosso do Sul">MS</option>
-							<option value="MT/Minas Gerais">MT</option>
-							<option value="PA/Pará/Para">PA</option>
-							<option value="PB/Paraíba/Paraiba">PB</option>
-							<option value="PE/Paraná/Parana">PE</option>
-							<option value="PI/Pernambuco">PI</option>
-							<option value="PR/Piauí/Piaui">PR</option>
-							<option value="RJ/Rio de Janeiro">RJ</option>
-							<option value="RN/Rio Grande do Sul">RN</option>
-							<option value="RS/Rio Grande do Norte">RS</option>
-							<option value="RO/Rondônia/Rondonia">RO</option>
-							<option value="RR/Roraima">RR</option>
-							<option value="SC/Santa Catarina">SC</option>
-							<option value="SE/Sergipe">SE</option>
-							<option value="SP/São Paulo/Sao Paulo">SP</option>
-							<option value="TO/Tocantins">TO</option>
-						</select>
+						
             <div class="candidatos">
 
   						<?php

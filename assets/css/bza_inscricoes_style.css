@@ -117,6 +117,8 @@ form#login-user a.close{
     z-index: 9999;
     left: 50%;
     top:10%;
+    background: #FFF;
+    padding: 20px;
 
 }
 .page-template-page-finalistas-php #user-loading{
@@ -137,7 +139,6 @@ form#login-user a.close{
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
-
 }
 .rg-user{
   max-width:300px;
@@ -150,9 +151,10 @@ form#login-user a.close{
 }
 #label-busca-nome{
   background-color: transparent;
-  float:left;
-  width: 50px;
-  height:50px;
+  display: inline-block;
+  overflow: hidden;
+  width: 41px;
+  height: 41px;
   background-size: contain;
   background-image:url('../../images/img-search.png');
 }
