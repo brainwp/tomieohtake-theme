@@ -139,7 +139,7 @@ function query_user_ajax(){
         $query = array(
               'key'		=> $key,
               'value' => '[[:<:]]'.$estado.'[[:>:]]',
-              'compare'	=> 'REGEX',
+              'compare'	=> 'RLIKE',
           );
       array_push($args['meta_query'], $query );
     }
