@@ -10,10 +10,11 @@
  // 	wp_redirect( get_home_url().'/cadastro-edicao-de-usuarios' );
  //
  // }
- if 	( !current_user_can( 'jurado' )){
+ if 	( !current_user_can( 'jurado' ) || !current_user_can( 'administrator' ) ){
 	 wp_redirect( get_home_url());
 
  }
+
 get_header('inscricao'); ?>
 
 	<div id="content" class="site-content">
