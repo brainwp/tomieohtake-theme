@@ -116,7 +116,7 @@ form#login-user a.close{
     position: absolute;
     z-index: 9999;
     left: 50%;
-    top:10%;
+    top:200px;
     background: #FFF;
     padding: 20px;
 
