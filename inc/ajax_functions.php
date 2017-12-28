@@ -202,6 +202,10 @@ function query_user_ajax(){
     $html = $inscritos;
 
   }
+  if ($html == "") {
+    $html = '<div class="candidato"> não existem candidatos do estado.</div>';
+
+  }
   $response['html'] = $html;
   echo json_encode($response);
 
