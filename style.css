@@ -1,5 +1,6 @@
 /*
 Theme Name: Tomie Ohtake Theme
+Version: 1.0
 Template: tema-coletivo
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -167,11 +168,11 @@ hr {
 	border-top: none;
 }
 
-.page-template-page-preliminar h1.fullheader-title {
+.page-template-page-preliminar h1.fullheader-title, .page-template-page-cadastrados h1.fullheader-title, .page-template-page-inscritos h1.fullheader-title, .page-template-page-finalistas h1.fullheader-title {
     text-align: center;
 }
 
-.page-template-page-preliminar h2.fullheader-title {
+.page-template-page-preliminar h2.fullheader-title, .page-template-page-cadastrados h2.fullheader-title, .page-template-page-inscritos h2.fullheader-title, .page-template-page-finalistas h2.fullheader-title {
     padding-left: 0;
 }
 
@@ -250,7 +251,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     margin-right: 4em;
 }
 
-#user-menu-inscricao a, #user-menu-cadastro a {
+#user-menu-inscricao a, #user-menu-cadastro a, #user-menu-inscritos a, #user-menu-finalistas a {
     color: #FFF;
     background: #eb008b;
     border-radius: 4px;

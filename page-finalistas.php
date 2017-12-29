@@ -25,7 +25,7 @@ get_header('inscricao'); ?>
 		<div id="content-inside" class="container no-sidebar">
 		<br />
 		<h1 class="fullheader-title">
-			Finalistas selecionados
+			Selecionados
 		</h1>
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
@@ -57,8 +57,8 @@ get_header('inscricao'); ?>
                     <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
                       <?php echo $user_nome; ?>
                     </a>
-										<button data-id="<?php echo $user_id;?>" class="button button-primary cadastro-finalista">Ver cadastro</button>
-										<button data-id="<?php echo $user_id;?>" class="acf-button button button-primary button-large inscricao-finalista">Ver Inscrição</button>
+										<button data-id="<?php echo $user_id;?>" class="btn btn-theme-primary">Ver cadastro</button>
+										<button data-id="<?php echo $user_id;?>" class="btn btn-theme-primary inscricao-finalista">Ver Inscrição</button>
 
                     <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
                       <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?> disabled/>
