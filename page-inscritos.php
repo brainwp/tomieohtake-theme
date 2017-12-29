@@ -30,7 +30,7 @@ get_header('inscricao'); ?>
 		</h1>
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
-            <div class="candidatos col-md-6">
+            <div class="candidatos-lista col-md-6">
             <h2 class="fullheader-title">Lista <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a></h2>
               <form class="" action="" method="get">
                 <input id="busca-nome" type="text" name="nome" value="">
@@ -69,7 +69,7 @@ get_header('inscricao'); ?>
 
 						<div class="clearfix">
 						</div>
-						
+
             <div class="candidatos">
 
   						<?php
