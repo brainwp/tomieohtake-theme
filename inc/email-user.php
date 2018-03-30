@@ -8,5 +8,5 @@ agradecemos sua inscrição na Residência Artística!</p>
 
 <p>Boa sorte!</p>
 
-<p>Equipe do Prêmio EDP nas Artes</p>
+<p>Equipe do PRÊMIO EDP NAS ARTES 2018</p>
 </html>

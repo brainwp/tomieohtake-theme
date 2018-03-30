@@ -129,7 +129,7 @@ function trac_update_userdata( $post_id ) {
      // insert the post
      $post_id = wp_insert_post( $post );
     //  adiciona a categoria (qual o edital/concurso)
-     $termo=get_term_by( 'name', 'PRÊMIO EDP NAS ARTES', 'category' );
+     $termo=get_term_by( 'name', 'PRÊMIO EDP NAS ARTES 2018', 'category' );
      wp_set_post_terms( $post_id, $termo->term_id, 'category' );
      // return the new ID
      do_action('acf/save_post', $post_id);
@@ -425,7 +425,7 @@ add_filter('acf/pre_save_post' , 'honeypot', 10, 1 );
 
 // email de confirmacao
 function email_confirma_user($email){
-  $subject = 'Inscrição Prêmio EDP nas Artes';
+  $subject = 'Inscrição Prêmio EDP nas Artes 2018';
   $message = 'Você está inscrito.';
   $body = file_get_contents(get_stylesheet_directory() . '/inc/email-user.php');
   function usar_html(){
