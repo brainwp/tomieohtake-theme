@@ -25,7 +25,7 @@ function ajax_login(){
 function pega_user(){
   if (isset($_POST['id'])) {
     $id=$_POST['id'];
-    $rg_verificado = (1 == get_user_meta($id, 'rg_verificado', true)) ? '<b>RG verificado - </b> Sim' : '<b>RG verificado - </b>Não'; // $r is set to 'Yes'
+    $rg_verificado = (1 == get_user_meta($id, 'rg_verificado', true)) ? '<b>RG e CPF verificados - </b> Sim' : '<b>RG e CPF verificados - </b>Não'; // $r is set to 'Yes'
 
     $modal_cadastro='';
     $campos_user=get_fields("user_".$id);
