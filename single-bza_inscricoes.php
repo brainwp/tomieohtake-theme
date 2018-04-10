@@ -46,7 +46,7 @@
 
 					acf_form(array(
   					'post_id'		=> 'post_'.$post_id,
-            'field_groups' => array(388),
+            'field_groups' => array(445),
   					'submit_value'		=> 'Atualizar',
             'html_after_fields' => '<input type="hidden" name="post_category" value="Inscrição EDP nas Artes"/>',
             'updated_message' => __("Inscrição atualizada!", 'acf'),

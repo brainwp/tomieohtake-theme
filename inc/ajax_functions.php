@@ -115,7 +115,7 @@ function marca_finalista(){
   //   echo json_encode('Já existem oito candidatos selecionados');
   // }
   // else {
-    $resultado = update_user_meta( $_POST['id'], 'finalista', $_POST['valor'] );
+    $resultado = update_user_meta( $_POST['id'], 'finalista-2018', $_POST['valor'] );
     echo json_encode($resultado);
   // }
     die();
@@ -175,7 +175,7 @@ function query_user_ajax(){
         $inscritos .= '  <a href="#" class="user_ajax" data-id="'.$user_id.'">';
         $inscritos .=  $user_nome;
         $inscritos .=  '</a>';
-        $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';
+        $checked = (1 == get_user_meta($user_id, 'finalista-2018', true)) ? 'checked' : '';
         $inscritos .=  '<input class="seleciona-candidato" type="checkbox" data-id="'.$user_id.'" id="user_'. $user_id.'"  value="1" '. $checked.'/>';
         $inscritos .=  '  <label for="user_'.$user_id.'">';
         $inscritos .=  '   </div>';
@@ -187,7 +187,7 @@ function query_user_ajax(){
         $cadastrados .= '  <a href="#" class="user_ajax" data-id="'.$user_id.'">';
         $cadastrados .=  $user_nome;
         $cadastrados .=  '</a>';
-        $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';
+        $checked = (1 == get_user_meta($user_id, 'finalista-2018', true)) ? 'checked' : '';
         $cadastrados .=  '<input class="seleciona-candidato" type="checkbox" data-id="'.$user_id.'" id="user_'. $user_id.'"  value="1" '. $checked.'/>';
         $cadastrados .=  '  <label for="user_'.$user_id.'">';
         $cadastrados .=  '   </div>';

@@ -41,7 +41,7 @@ get_header('inscricao'); ?>
                 );
                   $args['meta_query']= array(
                       array(
-                          'key' => 'finalista',
+                          'key' => 'finalista-2018',
                           'value' =>  1,
 
                       )
@@ -60,7 +60,7 @@ get_header('inscricao'); ?>
 										<button data-id="<?php echo $user_id;?>" class="btn btn-theme-primary">Ver cadastro</button>
 										<button data-id="<?php echo $user_id;?>" class="btn btn-theme-primary inscricao-finalista">Ver Inscrição</button>
 
-                    <?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
+                    <?php $checked = (1 == get_user_meta($user_id, 'finalista-2018', true)) ? 'checked' : '';?>
                       <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?> disabled/>
                       <label for="user_<?php echo $user_id;?>">
                       </label>

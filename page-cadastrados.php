@@ -113,7 +113,7 @@ get_header('inscricao'); ?>
 											<a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
 												<?php echo $user_nome; ?>
 											</a>
-											<?php $checked = (1 == get_user_meta($user_id, 'finalista', true)) ? 'checked' : '';?>
+											<?php $checked = (1 == get_user_meta($user_id, 'finalista-2018', true)) ? 'checked' : '';?>
 
 												<br>
 
