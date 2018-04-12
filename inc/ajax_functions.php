@@ -48,7 +48,7 @@ function pega_user(){
     $checked = (1 == get_user_meta($id, 'rg_verificado', true)) ? 'checked' : '';
     $modal_cadastro .= '<form id="form-rg">
     <div class="acf-label">
-    <label for="rg-verificado-checkbox">RG verificado</label>
+    <label for="rg-verificado-checkbox">RG e CPF verificados</label>
     <input type="checkbox" id="rg-verificado-checkbox" name="rg-verificado-checkbox" value="1" '.$checked.' >
     <input type="hidden" id="user-id-rg" name="user-id-rg" value="'.$id.'" >
     <input type="submit" id="rg-verificado-submit" name="rg-verificado-submit" value="Salvar" >
@@ -56,8 +56,8 @@ function pega_user(){
     </form>
     ';
     $args = array(
-      'post_type'              => array( 'bza_inscricoes' ),
-      'author'            => $id,
+      'post_type'    => array( 'bza_inscricoes' ),
+      'author'       => $id,
       'tax_query' => array(
         array(
           'taxonomy' => 'category',
