@@ -54,7 +54,7 @@ get_header('inscricao'); ?>
           <?php
 							$args=array(
 		  					'post_id'		=> $post_id,
-		            		'field_groups' => array(373),
+								'field_groups' => array('group_59fbfaf0ba8ff'),
 		  					'submit_value'		=> $submit,
 							'updated_message' => $updated,
 	  					);
