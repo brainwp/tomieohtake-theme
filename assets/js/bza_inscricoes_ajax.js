@@ -305,7 +305,7 @@ function verifica_box(elemento){
         page='inscritos';
       }
       var metas={
-        'cidade__estado__pais_de_residencia' : valor,
+        'estado' : valor,
       }
       console.log(metas);
 

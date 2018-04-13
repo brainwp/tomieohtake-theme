@@ -32,6 +32,8 @@ get_header('inscricao'); ?>
 				<main id="main" class="site-main" role="main">
             <div class="candidatos-lista col-md-6">
             <h2 class="fullheader-title">Lista <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a></h2>
+						<?php echo "número total de candidatos inscritos: ".cont_proj();?>
+
               <form class="" action="" method="get">
                 <input id="busca-nome" type="text" name="nome" value="">
                 <input type="submit" id="label-busca-nome" value="">

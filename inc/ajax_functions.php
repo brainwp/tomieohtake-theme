@@ -133,9 +133,8 @@ function query_user_ajax(){
 
   foreach ($metas as $key => $value) {
     $estados=explode('/', $value);
-
     foreach ($estados as $estado) {
-
+			if ($value != '') {
         $query = array(
               'key'		=> $key,
               'value' => '[[:<:]]'.$estado.'[[:>:]]',
@@ -143,9 +142,9 @@ function query_user_ajax(){
           );
       array_push($args['meta_query'], $query );
     }
-      $response['args']= $args;
-
-  }
+	}
+  $response['args']= $args;
+}
 
   //
   $candidatos = get_users($args);

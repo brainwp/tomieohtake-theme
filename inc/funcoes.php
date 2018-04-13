@@ -462,3 +462,40 @@ function email_confirma_user($email){
 //    'meta_post_2'=>'meta_2',
 //   ),
 // )
+add_action( 'admin_menu', 'linked_url' );
+   function linked_url() {
+   add_menu_page( 'linked_url', 'Exportar CSV', 'read', 'my_slug', '', 'dashicons-text', 76 );
+   }
+
+   add_action( 'admin_menu' , 'linkedurl_function' );
+   function linkedurl_function() {
+   global $menu;
+   $menu[76][2] = get_home_url( ). '/exportar-csv/';
+   }
+
+	 function cont_proj(){
+		$args = array(
+				'role'         => 'candidato',
+		);
+
+		$candidatos = get_users($args);
+		$contador = 0;
+		foreach ($candidatos as $candidato => $value) {
+			$args = array(
+				'post_type'              => array( 'bza_inscricoes' ),
+				'author'            => $value->ID,
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'name',
+						'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+					),
+				),
+			);
+			$query = new WP_Query( $args );
+			if($query->post_count != 0 ){
+				$contador++;
+			}
+		}
+		return $contador;
+}
