@@ -8,7 +8,6 @@
 	$current_user = wp_get_current_user();
 
 	$user_id= $current_user->ID ;
-	print_r($user_id);
 	$user=$current_user->user_login;
 	$args = array(
 		'post_type'              => array( 'bza_inscricoes' ),
@@ -57,16 +56,15 @@ get_header('inscricao'); ?>
           <?php
 
 					acf_form(array(
-						// 'field_groups' => array(2144),
-						'field_groups' => array(445),
-						// 'field_groups' => array('group_5abeabb3f186a'),
+						'post_id'		=> 'new_post_'.$user_id,
+						'field_groups' => array('group_5abeabb3f186a'),
   					'new_post'		=> array(
   						'post_type'		=> 'bza_inscricoes',
   						'post_status'		=> 'publish'
   					),
   					'submit_value'		=> 'Inscrever',
 						'return' => get_home_url().'/inscricao-efetuada',
-						'html_after_fields' => '<input type="hidden" name="post_category" value="PRÊMIO EDP NAS ARTES 2018"/>',
+						'html_after_fields' => '<input type="hidden" name="post_category" value="Inscrição EDP nas Artes"/>',
 
   				)); ?>
        	 		<br />

@@ -46,12 +46,7 @@
 
 					acf_form(array(
   					'post_id'		=> 'post_'.$post_id,
-
-						            // 'field_groups' => array(2144),
-												'field_groups' => array(445),
-
-
-            // 'field_groups' => array('group_5abeabb3f186a'),
+						'field_groups' => array('group_5abeabb3f186a'),
   					'submit_value'		=> 'Atualizar',
             'html_after_fields' => '<input type="hidden" name="post_category" value="PRÊMIO EDP NAS ARTES 2018"/>',
             'updated_message' => __("Inscrição atualizada!", 'acf'),

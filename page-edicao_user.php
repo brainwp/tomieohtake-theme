@@ -26,9 +26,7 @@ get_header('inscricao'); ?>
 				<main id="main" class="site-main" role="main">
           <?php acf_form(array(
   					'post_id'		=> 'user_'.$user_id,
-						// 'field_groups' => array('group_59fbfaf0ba8ff'),
-						'field_groups' => array(61),
-
+						'field_groups' => array('group_59fbfaf0ba8ff'),
   					'new_post'		=> array(
   						'post_type'		=> 'post',
   						'post_status'		=> 'publish'

@@ -153,8 +153,8 @@ function trac_update_userdata( $post_id ) {
 // cadastro de candidatoas
   // $user_name= $_POST['acf']['field_59fc6a2a127ad'];
 	$user_email = $_POST['acf']['field_59fc712d7a1fc'];
-  $senha=$_POST['acf']['acf-field_59fe003f256d9'];
-  $senha_conf=$_POST['acf']['acf-field_59fe0082256da'];
+  $senha=$_POST['acf']['field_59fe003f256d9'];
+  $senha_conf=$_POST['acf']['ield_59fe0082256da'];
   $nome_completo= $_POST['acf']['field_59fbfafd7b7da'];
   $data_nasc = $_POST['acf']['field_59fbfb077b7db'];
   $site = $_POST['acf']['field_59fbfbae7b7e1'];
@@ -328,7 +328,7 @@ function date_validation( $valid, $value, $field, $input ){
   }
   elseif (strtotime($value) > strtotime('20000517' ) || strtotime($value) < strtotime('19880517' )){
 
-    return 'A inscrição é valida para jovens artistas de 18 a 29 anos.';
+    return 'A inscrição é valida para jovens artistas de 18 a 27 anos.';
   }
   return $valid;
 
