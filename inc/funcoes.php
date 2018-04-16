@@ -322,13 +322,13 @@ function username_validation( $valid, $value, $field, $input ){
 add_filter('acf/validate_value/key=field_59fbfb077b7db', 'date_validation', 10, 4);
 function date_validation( $valid, $value, $field, $input ){
   $data_final=date("Ymd", strtotime("-18 year"));
-  $data_inicial= date("Ymd", strtotime("-27 year"));
+  $data_inicial= date("Ymd", strtotime("-29 year"));
   if(strtotime($value) > strtotime(date("Ymd") )){
     return 'Por favor escolha uma data no passado.';
   }
-  elseif (strtotime($value) > strtotime('19991223' ) || strtotime($value) < strtotime('19891223' )){
+  elseif (strtotime($value) > strtotime('20000517' ) || strtotime($value) < strtotime('19880517' )){
 
-    return 'A inscrição é valida para jovens artistas de 18 a 27 anos.';
+    return 'A inscrição é valida para jovens artistas de 18 a 29 anos.';
   }
   return $valid;
 
