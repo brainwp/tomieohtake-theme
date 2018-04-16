@@ -14,11 +14,19 @@
 
 }
 	$csv_array = array(
+		// 2018:
+						// array(
+						// 	"email","nome_completo","nome_artistico","data_de_nascimento","cep","uf","cidade","endereco_completo","telefone","website","formacao","identidade_de_genero","raca","e_pessoa_com_deficiencia","necessita_recurso_especifico","identidade","cpf","rg_digitalizado","cpf_digitalizado",
+						// 	"como","portfolio","link_para_video"
+						// 			)
+
+						// Residencia:
 						array(
-							"email","nome_completo","nome_artistico","data_de_nascimento","cep","uf","cidade","endereco_completo","telefone","website","formacao","identidade_de_genero","raca","e_pessoa_com_deficiencia","necessita_recurso_especifico","identidade","cpf","rg_digitalizado","cpf_digitalizado",
-							"como","portfolio","link_para_video"
+							"email","nome_completo","nome_artistico","data_de_nascimento","endereco_completo","telefone","website","formacao","identidade","rg_digitalizado","como","carta_de_intencao","portfolio"
 									)
+
 							);
+
 	$candidatos = get_users( $args = array('role' => 'candidato') );
 	foreach ($candidatos as $candidato ) {
 		$user_meta= get_fields('user_'.$candidato->ID);
@@ -43,7 +51,9 @@
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'name',
-						'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+						// 'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+						'terms'    => 'PRÊMIO EDP NAS ARTES',
+
 					),
 				),
 			)
@@ -54,16 +64,20 @@
 			foreach ($inscricoes as $inscricao ) {
 				$projeto = $candidato_array;
 				$post_meta=get_fields( $inscricao->ID );
-				foreach ($post_meta as $key => $value) {
-					if ($key == 'portfolio') {
-						$value = $value['url'];
+				if (is_array($post_meta)) {
+					foreach ($post_meta as $key => $value) {
+						if ($key == 'portfolio') {
+							$value = $value['url'];
+						}
+						array_push($projeto, $value);
 					}
-					array_push($projeto, $value);
+					array_push($csv_array, $projeto);
 				}
-				array_push($csv_array, $projeto);
 			}
 		}
 	}
+	// print_r($csv_array);
+	// wp_die();
 
 	$uploads = wp_upload_dir();
 
