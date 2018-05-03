@@ -22,7 +22,7 @@ if ( ! function_exists( 'coletivo_footer_site_info' ) ) {
 
         <?php printf(esc_html__('%2$s %1$s', 'coletivo'), esc_attr(date('Y')), esc_attr(get_bloginfo())); ?>
         <span class="sep"> &ndash; </span>
-        <?php printf(esc_html__('Desenvolvido pela %1$s com %2$s', 'coletivo'), '<a class="logo-brasa" href="' . esc_url('http://brasa.art.br', 'coletivo') . '">Brasa</a>', '<a class="logo-wp" href="' . esc_url('https://br.wordpress.org', 'coletivo') . '"><i class="fa fa-wordpress" aria-hidden="true"></i></a>'); ?>
+        <?php printf(esc_html__('Desenvolvido pela %1$s com %2$s', 'coletivo'), '<a class="logo-brasa" href="' . esc_url('https://brasa.art.br', 'coletivo') . '">Brasa</a>', '<a class="logo-wp" href="' . esc_url('https://br.wordpress.org', 'coletivo') . '"><i class="fa fa-wordpress" aria-hidden="true"></i></a>'); ?>
         <?php
     }
 }
@@ -52,7 +52,7 @@ if ( ! function_exists( 'coletivo_site_header' ) ) {
                     </nav>
                     <?php
                     if (is_user_logged_in()) {
-                      if (current_user_can( 'jurado')) {?>
+                      if (current_user_can( 'jurado') || current_user_can( 'administrator')) {?>
 
                         <nav id="user-navigation" class="main-navigation" role="navigation">
                             <ul class="user-menu coletivo-menu">
