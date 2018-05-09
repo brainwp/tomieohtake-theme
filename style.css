@@ -109,8 +109,46 @@ hr {
 
 .no-sidebar .content-area {
     padding: 0 6%;
+}
+
+.single-premios h2.fullheader-title, .post-type-archive-premios h2.fullheader-title {
+    font-size: 30px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: .9375rem;
+    padding-top: 20px;
+}
+
+.single-premios h3.header-title {
+    font-size: 26px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: .9375rem;
+    padding-top: 20px;
+}
+
+.post-type-archive-premios h2.entry-title {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.post-type-archive-premios .feature-item {
+    padding-bottom:.9375rem;
+}
+
+.post-type-archive-premios .feature-media {
+    height: 140px;
+}
+
+.single-premios .content-area {
+    padding: 0 6%;
     border-top: 1px solid #eee;
 }
+
 
 .footer-logos {
     background-color: #FFF;
@@ -164,16 +202,18 @@ hr {
 }
 
 .homeprov .no-sidebar .content-area {
-
 	border-top: none;
 }
 
-.page-template-page-preliminar h1.fullheader-title, .page-template-page-cadastrados h1.fullheader-title, .page-template-page-inscritos h1.fullheader-title, .page-template-page-finalistas h1.fullheader-title {
+.page-template-page-preliminar h1.fullheader-title {
     text-align: center;
 }
 
-.page-template-page-preliminar h2.fullheader-title, .page-template-page-cadastrados h2.fullheader-title, .page-template-page-inscritos h2.fullheader-title, .page-template-page-finalistas h2.fullheader-title {
+.page-template-page-preliminar h2.fullheader-title, .page-template-page-cadastrados h2.fullheader-title, .page-template-page-inscritos h2.fullheader-title, .page-template-page-finalistas h2.fullheader-title,  .page-template-page-proj-finalistas h2.fullheader-title {
     padding-left: 0;
+}
+.page-template-page-preliminar h1.fullheader-title, .page-template-page-cadastrados h1.fullheader-title, .page-template-page-inscritos h1.fullheader-title, .page-template-page-finalistas h1.fullheader-title,  .page-template-page-proj-finalistas h1.fullheader-title {
+    border-bottom: 1px solid #eee;
 }
 
 input[type="reset"], input[type="submit"], input[type="submit"] {
@@ -276,6 +316,24 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     margin-bottom: 0;
     font-size: 1.2em;
 }
+
+.archive .list-article{
+    height:auto;
+}
+
+.archive .list-projects{
+    height:auto;
+    padding: 5px;
+    width: 33.3%;
+    margin-bottom: 25px;
+    float: left;
+}
+.archive .list-projects-content {
+    float: left;
+    overflow: hidden;
+    margin-right: 0;
+    padding: 20px;
+    background-color:#f8f9f9;
 }
 
 @media screen and (max-width: 545px) {
