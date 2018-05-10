@@ -77,8 +77,7 @@ get_header(); ?>
 		            <?php $content_mencao_honrosa = get_post_meta( get_the_ID(), 'desc_mencao_honrosa', true ); ?>
 		                	<p><?php echo apply_filters( 'the_content', $content_mencao_honrosa );?></p>
 		            </div>
-		    <?php endif; ?>
-			<?php if ( $mencao_honrosa_2 = get_field('mencao_honrosa_2') ): ?>
+				<?php if ( $mencao_honrosa_2 = get_field('mencao_honrosa_2') ): ?>
 					<div class="feature-item col-lg-4 col-sm-6">
 						<div class="feature-media">
 					<?php $mencao_honrosa_2 = get_field('mencao_honrosa_2'); ?>
@@ -89,7 +88,7 @@ get_header(); ?>
 		            <?php $content_mencao_honrosa_2 = get_post_meta( get_the_ID(), 'desc_mencao_honrosa_2', true ); ?>
 		                    <p><?php echo apply_filters( 'the_content', $content_mencao_honrosa_2 );?></p>        
 		            </div>
-		    
+		    	<?php endif; ?>
 		            <div class="feature-item col-lg-4 col-sm-6"></div>
 	        </div>
         </div>
@@ -110,6 +109,7 @@ get_header(); ?>
 						?>
 						<?php endif;?>
 					</div>
+				<br />
 		<?php endif; ?>
 		<?php if ( $juri = get_field('juri') ): ?>
 				<hr />
