@@ -145,16 +145,16 @@ add_action( 'init', 'post_type_premios', 1 );
 
 // Adicionando Campos ao CPT
 
-if (!function_exists('get_field')) {
-  function get_field($field) {
+if (!function_exists('get_cpt_field')) {
+  function get_cpt_field($field) {
     global $post;
     return get_post_meta($post->ID, $field, true);
   }
 } 
-if (!function_exists('the_field')) {
-  function the_field($field) {
+if (!function_exists('the_cpt_field')) {
+  function the_cpt_field($field) {
     global $post;
-    echo get_field($field);
+    echo get_cpt_field($field);
   }
 }
 function premios_query( $query ) {

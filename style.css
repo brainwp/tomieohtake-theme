@@ -293,7 +293,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 
 #user-menu-inscricao a, #user-menu-cadastro a, #user-menu-inscritos a, #user-menu-finalistas a {
     color: #FFF;
-    background: #ED1C24;
+    background: #00ff00;
     border-radius: 4px;
     font-weight: 600;
     text-transform: uppercase;
@@ -338,6 +338,15 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 
 .section-desc {
     font-size: 1rem;
+}
+
+.hero-content-style1 p {
+   color: #222;
+}
+
+.hero__content .btn-secondary-outline {
+    background: rgba(255,255,255,0.80);
+    color: #222;
 }
 
 @media screen and (max-width: 545px) {

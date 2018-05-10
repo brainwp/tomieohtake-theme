@@ -51,7 +51,7 @@
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'name',
-						'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+						'terms'    => '2018',
 
 					),
 				),

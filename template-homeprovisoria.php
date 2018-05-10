@@ -12,7 +12,7 @@ get_header('inscricao'); ?>
 		<div id="content-inside" class="container no-sidebar">
 			<div class="container">
 			<div class="homeprov-logo">
- 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_index_logo.png">
+ 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_index_logo.jpg">
  			</div>
             <hr>
             </div>

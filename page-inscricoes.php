@@ -16,7 +16,7 @@
 			array(
 				'taxonomy' => 'category',
 				'field'    => 'name',
-				'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+				'terms'    => '2018',
 			),
 		),
 	);
@@ -64,7 +64,7 @@ get_header('inscricao'); ?>
   					),
   					'submit_value'		=> 'Inscrever',
 						'return' => get_home_url().'/inscricao-efetuada',
-						'html_after_fields' => '<input type="hidden" name="post_category" value="Inscrição EDP nas Artes"/>',
+						'html_after_fields' => '<input type="hidden" name="post_category" value="2018"/>',
 
   				)); ?>
        	 		<br />

@@ -48,7 +48,7 @@
   					'post_id'		=> 'post_'.$post_id,
 						'field_groups' => array('group_5abeabb3f186a'),
   					'submit_value'		=> 'Atualizar',
-            'html_after_fields' => '<input type="hidden" name="post_category" value="PRÊMIO EDP NAS ARTES 2018"/>',
+            'html_after_fields' => '<input type="hidden" name="post_category" value="2018"/>',
             'updated_message' => __("Inscrição atualizada!", 'acf'),
 
 
