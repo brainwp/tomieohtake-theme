@@ -22,7 +22,7 @@ get_header(); ?>
 								'post_type' => 'premios',
 								'orderby' => 'date',
 								'order' => 'DESC',
-								'posts_per_page' => '4',
+								'posts_per_page' => '-1',
 								'paged' => $paged
 								);
 								$loop_cpt_premios = new WP_Query( $args_loop_cpt_premios ); if ( $loop_cpt_premios->have_posts() ) {

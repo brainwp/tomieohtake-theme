@@ -115,9 +115,7 @@ get_header(); ?>
 				<?php $content_juri = get_post_meta( get_the_ID(), 'juri', true ); ?>
 				<h3 class="header-title">Membros do Júri</h3>
 					<div class="container">
-						<p">
-							<?php echo apply_filters( 'the_content', $content_juri );?>
-						</p>
+						<p><?php echo apply_filters( 'the_content', $content_juri );?></p>
 					</div>
 				<?php endif; ?>
 				<?php if ( $premiacoes = get_field('premiacoes') ): ?>

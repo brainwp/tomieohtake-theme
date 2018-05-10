@@ -142,11 +142,11 @@ hr {
 
 .post-type-archive-premios .feature-media {
     height: 140px;
+    overflow: hidden;
 }
 
 .single-premios .content-area {
     padding: 0 6%;
-    border-top: 1px solid #eee;
 }
 
 
@@ -334,6 +334,10 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     margin-right: 0;
     padding: 20px;
     background-color:#f8f9f9;
+}
+
+.section-desc {
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 545px) {

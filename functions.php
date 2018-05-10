@@ -170,7 +170,7 @@ add_action( 'pre_get_posts', 'premios_query' );
 require get_template_directory() . '/inc/class-metabox.php';
 $premios_metabox = new Odin_Metabox(
     'premios_metabox', // Slug/ID do Metabox (obrigatório)
-    'Projetos, Jurí e Prêmios', // Nome do Metabox  (obrigatório)
+    'Artistas, Jurí e Prêmios', // Nome do Metabox  (obrigatório)
     'premios', // Slug do Post Type, sendo possível enviar apenas um valor ou um array com vários (opcional)
     'normal', // Contexto (opções: normal, advanced, ou side) (opcional)
     'high' // Prioridade (opções: high, core, default ou low) (opcional)
@@ -185,13 +185,13 @@ $premios_metabox->set_fields(
         ),
         array(
             'id'          => 'nome_premiado_1',
-            'label'       => 'Nome do Projeto 1º Lugar',
+            'label'       => 'Nome do 1º Lugar',
             'type'        => 'text',
             'description' => ''
         ),
         array(
             'id'          => 'desc_premiado_1',
-            'label'       => 'Descrição da equipe 1º Lugar',
+            'label'       => 'Descrição do 1º Lugar',
             'type'        => 'editor',
             'description' => ''
         ),
@@ -203,13 +203,13 @@ $premios_metabox->set_fields(
         ),
         array(
             'id'          => 'nome_premiado_2',
-            'label'       => 'Nome do Projeto 2º Lugar',
+            'label'       => 'Nome do 2º Lugar',
             'type'        => 'text',
             'description' => ''
         ),
         array(
             'id'          => 'desc_premiado_2',
-            'label'       => 'Descrição da equipe 2º Lugar',
+            'label'       => 'Descrição do 2º Lugar',
             'type'        => 'editor',
             'description' => ''
         ),
@@ -221,13 +221,13 @@ $premios_metabox->set_fields(
         ),
         array(
             'id'          => 'nome_premiado_3',
-            'label'       => 'Nome do Projeto 3º Lugar',
+            'label'       => 'Nome do 3º Lugar',
             'type'        => 'text',
             'description' => ''
         ),
         array(
             'id'          => 'desc_premiado_3',
-            'label'       => 'Descrição da equipe 3º Lugar',
+            'label'       => 'Descrição do 3º Lugar',
             'type'        => 'editor',
             'description' => ''
         ),
