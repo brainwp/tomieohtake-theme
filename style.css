@@ -88,10 +88,6 @@ hr {
     font-weight: 900;
 }
 
-.btn-theme-primary, .btn-theme-primary:hover {
-    color: #222;
-}
-
 .hero-content-style1 p {
     font-style: normal;
     letter-spacing: 0;
@@ -354,12 +350,16 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     color: #222;
 }
 
+.hero__content .btn-theme-primary, .btn-theme-primary:hover {
+    color: #222;
+}
+
 .hero__content {
     text-shadow: none; 
 }
 
-.feature-item.icon-image img {
-    border-radius:50%;
+.feature-item .icon-image img {
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 545px) {
