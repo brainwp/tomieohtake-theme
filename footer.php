@@ -14,16 +14,16 @@
             <div class="container">
             <hr>
                 <div class="row logos">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <h3>&nbsp;</h3>
-                        <br /><br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_rouanet.png" style="width: 80px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_proacsp.png" style="width: 80px;">
-                    </div>
-                    <div class="col-md-3">
-                        <h3>PATROCÍNIO<br>&nbsp;</h3>
                         <br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_leroy_gde.png" style="width: 240px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_rouanet.png" style="width: 80px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_proacsp.png" style="width: 120px;">
+                    </div>
+                    <div class="col-md-2">
+                        <h3>PATROCÍNIO</h3>
+                        <br />
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_leroy-60.png" style="width: 160px;margin-top:10px;">
                     </div>
 
                     <div class="col-md-4">
@@ -49,7 +49,7 @@
                         <h3>REALIZAÇÃO</h3>
                         <br />
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_govsp.png" style="width: 160px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_E.png" style="width: 160px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_E.png" style="width: 140px;">
                     </div>
                 </div>
                 <hr>

@@ -76,7 +76,7 @@ hr {
 }
 
 #inscreva-se, #logout-botao {
-    color: #FFF;
+    color: #222;
     padding-right: 17px;
     margin-top: 12px;
     margin-left: 2em;
@@ -85,6 +85,11 @@ hr {
 
 .btn, .btn-lg {
     font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 900;
+}
+
+.btn-theme-primary, .btn-theme-primary:hover {
+    color: #222;
 }
 
 .hero-content-style1 p {
@@ -292,7 +297,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 }
 
 #user-menu-inscricao a, #user-menu-cadastro a, #user-menu-inscritos a, #user-menu-finalistas a {
-    color: #FFF;
+    color: #222;
     background: #00ff00;
     border-radius: 4px;
     font-weight: 600;
@@ -345,8 +350,16 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 }
 
 .hero__content .btn-secondary-outline {
-    background: rgba(255,255,255,0.80);
+    background: rgba(255,255,255,0.9);
     color: #222;
+}
+
+.hero__content {
+    text-shadow: none; 
+}
+
+.feature-item.icon-image img {
+    border-radius:50%;
 }
 
 @media screen and (max-width: 545px) {
