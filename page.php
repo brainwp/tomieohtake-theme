@@ -25,6 +25,7 @@ get_header('inscricao'); ?>
 			<div class="homeprov-logo">
  				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_index_logo.jpg">
  			</div>
+ 			<hr>
         </div>
 		<?php the_title( '<h2 class="fullheader-title">', '</h2>' ); ?>
 			<div id="primary" class="content-area">

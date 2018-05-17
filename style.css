@@ -383,6 +383,18 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     height: 100%;
 }
 
+.section-services.section-padding, .section-features.section-padding , .section-team.section-padding  {
+    padding: 3.375rem 0 3.375rem;
+}
+
+.section-features {
+    background: white;
+}
+
+.section-team .section-title-area {
+    margin-bottom: 0px;
+}
+
 @media screen and (max-width: 545px) {
 
 	.section-contact h2.section-title {
