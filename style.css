@@ -54,8 +54,14 @@ hr {
     line-height: 50px;
 }
 
-.custom-logo-link img {
-    max-width: 85%;
+img.custom-logo {
+    max-width: 100%;
+    margin-top: -8px;
+    margin-bottom: -5px;
+}
+
+nav#site-navigation {
+    display: flex;
 }
 
 .site-header.header-fixed {
@@ -64,6 +70,7 @@ hr {
 
 .coletivo-menu {
     float: none;
+    margin-left: 3%;
 }
 
 .coletivo-menu a {
@@ -290,6 +297,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     min-width: 33%;
     border-radius: 0 0 6px 6px;
     margin-right: 4em;
+    clear: both;
 }
 
 #user-menu-inscricao a, #user-menu-cadastro a, #user-menu-inscritos a, #user-menu-finalistas a {
@@ -342,7 +350,10 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 }
 
 .hero-content-style1 p {
-   color: #222;
+   color: #00FF00;
+}
+.hero__content .btn {
+    font-size: 1.1em;
 }
 
 .hero__content .btn-secondary-outline {
@@ -358,8 +369,18 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     text-shadow: none; 
 }
 
-.feature-item .icon-image img {
+.feature-item .icon-image {
+    width: 230px;
+    height: 230px;
+    display: block;
+    overflow: hidden;
     border-radius: 50%;
+    margin: 0 auto;
+}
+
+.feature-item .icon-image img {
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 545px) {

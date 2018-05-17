@@ -14,7 +14,7 @@
 
 }
 	$csv_array = array(
-		// 2018:
+						// 2018:
 						// array(
 						// 	"email","nome_completo","nome_artistico","data_de_nascimento","cep","uf","cidade","endereco_completo","telefone","website","formacao","identidade_de_genero","raca","e_pessoa_com_deficiencia","necessita_recurso_especifico","identidade","cpf","rg_digitalizado","cpf_digitalizado",
 						// 	"como","portfolio","link_para_video"

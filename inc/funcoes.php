@@ -129,7 +129,7 @@ function trac_update_userdata( $post_id ) {
      // insert the post
      $post_id = wp_insert_post( $post );
     //  adiciona a categoria (qual o edital/concurso)
-     $termo=get_term_by( 'name', 'PRÊMIO EDP NAS ARTES 2018', 'category' );
+     $termo=get_term_by( 'name', '2018', 'category' );
      wp_set_post_terms( $post_id, $termo->term_id, 'category' );
      // return the new ID
      do_action('acf/save_post', $post_id);
@@ -281,9 +281,6 @@ function hasWhiteSpace($string) {
 
 }
 
-
-
-
 //FORM IMAGE VALIDATION
 add_filter('acf/validate_value/type=password', 'my_acf_validate_value', 10, 4);
 function my_acf_validate_value( $valid, $value, $field, $input ){
@@ -319,20 +316,19 @@ function username_validation( $valid, $value, $field, $input ){
 	return $valid;
 
 }
-add_filter('acf/validate_value/key=field_59fbfb077b7db', 'date_validation', 10, 4);
-function date_validation( $valid, $value, $field, $input ){
-  $data_final=date("Ymd", strtotime("-18 year"));
-  $data_inicial= date("Ymd", strtotime("-29 year"));
-  if(strtotime($value) > strtotime(date("Ymd") )){
-    return 'Por favor escolha uma data no passado.';
-  }
-  elseif (strtotime($value) > strtotime('20000617' ) || strtotime($value) < strtotime('19880617' )){
+// add_filter('acf/validate_value/key=field_59fbfb077b7db', 'date_validation', 10, 4);
+// function date_validation( $valid, $value, $field, $input ){
+//   $data_final=date("Ymd", strtotime("-18 year"));
+// $data_inicial= date("Ymd", strtotime("-29 year"));
+//  if(strtotime($value) > strtotime(date("Ymd") )){
+//    return 'Por favor escolha uma data no passado.';
+//  }
+//  elseif (strtotime($value) > strtotime('20000617' ) || strtotime($value) < strtotime('19880617' )){
 
-    return 'A inscrição é valida para jovens artistas de 18 a 29 anos.';
-  }
-  return $valid;
-
-}
+// return 'A inscrição é valida para jovens artistas de 18 a 29 anos.';
+//  }
+//  return $valid;
+// }
 add_filter('acf/validate_value/key=field_59fc712d7a1fc', 'email_validation', 10, 4);
 function email_validation( $valid, $value, $field, $input ){
   if( !$valid ) {

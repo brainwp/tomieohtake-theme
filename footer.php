@@ -23,7 +23,8 @@
                     <div class="col-md-2">
                         <h3>PATROCÍNIO</h3>
                         <br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_leroy-60.png" style="width: 160px;margin-top:10px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_construir.jpg" style="width: 90px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_leroy-60.png" style="width: 120px;">
                     </div>
 
                     <div class="col-md-4">

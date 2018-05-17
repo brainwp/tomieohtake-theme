@@ -62,7 +62,7 @@ function pega_user(){
         array(
           'taxonomy' => 'category',
           'field'    => 'name',
-          'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+          'terms'    => '2018',
         ),
       ),
     );
@@ -162,7 +162,7 @@ function query_user_ajax(){
           array(
             'taxonomy' => 'category',
             'field'    => 'name',
-            'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+            'terms'    => '2018',
           ),
         ),
       );
