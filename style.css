@@ -88,6 +88,8 @@ nav#site-navigation {
     margin-top: 12px;
     margin-left: 2em;
     text-transform: uppercase;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 
 .btn, .btn-lg {
@@ -304,13 +306,14 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     color: #222;
     background: #00ff00;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight: 300;
     text-transform: uppercase;
     padding: 2px 13px;
-    font-size: 1em;
     line-height: 20px;
-    margin-right: 10px;
+    margin-left: 10px;
     margin-top: 3px;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 #user-menu-inscricao a {
@@ -353,7 +356,7 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
    color: #00FF00;
 }
 .hero__content .btn {
-    font-size: 1.1em;
+    font-size: 1rem;
 }
 
 .hero__content .btn-secondary-outline {
@@ -393,6 +396,9 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
 
 .section-team .section-title-area {
     margin-bottom: 0px;
+}
+.btn {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 @media screen and (max-width: 545px) {

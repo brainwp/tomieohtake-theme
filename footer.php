@@ -23,12 +23,12 @@
                     <div class="col-md-2">
                         <h3>PATROCÍNIO</h3>
                         <br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_construir.jpg" style="width: 90px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_construir.jpg" style="width: 90px; margin-left:-23px;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_leroy-60.png" style="width: 120px;">
                     </div>
 
                     <div class="col-md-4">
-                        <h3>APOIO DE MÍDIA<br>&nbsp;</h3>
+                        <h3 style="margin-left:-20px;">APOIO DE MÍDIA<br>&nbsp;</h3>
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_archdaily.png" style="width: 80px; float: left;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_archie.png" style="width: 80px; float: left;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_archyouw.png" style="width: 80px; float: left;">
@@ -43,14 +43,14 @@
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_trip.png" style="width: 80px; float: left;">
                     </div>
                     <div class="col-md-2">
-                        <h3>IDEALIZAÇÃO E<br> COORDENAÇÃO</h3>
+                        <h3 style="margin-left:-10px;">IDEALIZAÇÃO E<br> COORDENAÇÃO</h3>
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_tomie_peq.png" style="width: 160px;">
                     </div>
                      <div class="col-md-2">
                         <h3>REALIZAÇÃO</h3>
                         <br />
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_govsp.png" style="width: 160px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_E.png" style="width: 140px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_E.png" style="width: 130px;margin-left:5px;">
                     </div>
                 </div>
                 <hr>
