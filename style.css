@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button, label {
-    font-family: "Open Sans Condensed", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .entry-header .entry-title {
@@ -90,11 +90,6 @@ nav#site-navigation {
     text-transform: uppercase;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 16px;
-}
-
-.btn, .btn-lg {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 900;
 }
 
 .hero-content-style1 p {
@@ -227,8 +222,8 @@ nav#site-navigation {
 }
 
 input[type="reset"], input[type="submit"], input[type="submit"] {
-    font-family: "Open Sans Condensed", sans-serif;
-    font-size: 17px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
 }
 
 .acf-field p.description {
