@@ -367,6 +367,17 @@ input[type="reset"], input[type="submit"], input[type="submit"] {
     text-shadow: none; 
 }
 
+.feature-item {
+    margin-bottom: 30px;
+}
+
+.feature-item h4 , .service-item h4.service-title{
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
 .feature-item .icon-image {
     width: 230px;
     height: 230px;
