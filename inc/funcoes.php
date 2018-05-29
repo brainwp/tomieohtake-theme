@@ -421,7 +421,7 @@ add_filter('acf/pre_save_post' , 'honeypot', 10, 1 );
 
 // email de confirmacao
 function email_confirma_user($email){
-  $subject = 'Inscrição Prêmio EDP nas Artes 2018';
+  $subject = 'Inscrição Prêmio de Design Instituto Tomie Ohtake Leroy Merlin';
   $message = 'Você está inscrito.';
   $body = file_get_contents(get_stylesheet_directory() . '/inc/email-user.php');
   function usar_html(){
