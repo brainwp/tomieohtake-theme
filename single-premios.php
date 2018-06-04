@@ -86,7 +86,7 @@ get_header(); ?>
 		                </div>
 		                    <h3 style="text-align: center;"><?php the_field('nome_mencao_honrosa_2'); ?></h3>
 		            <?php $content_mencao_honrosa_2 = get_post_meta( get_the_ID(), 'desc_mencao_honrosa_2', true ); ?>
-		                    <p><?php echo apply_filters( 'the_content', $content_mencao_honrosa_2 );?></p>        
+		                    <p><?php echo apply_filters( 'the_content', $content_mencao_honrosa_2 );?></p>
 		            </div>
 		    	<?php endif; ?>
 		            <div class="feature-item col-lg-4 col-sm-6"></div>
