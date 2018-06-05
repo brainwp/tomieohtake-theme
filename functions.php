@@ -79,8 +79,8 @@ if ( ! function_exists( 'coletivo_site_header' ) ) {
                               	$nome= km_get_users_name($current_user->ID) ;
                                 echo $nome;
                                 ?>.</li>
-                                <li id="user-menu-inscricao" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/inscricao">Inscrição</a></li>
-                                <li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Cadastro</a></li>
+								<li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Dados do artista</a></li>
+                                <li id="user-menu-inscricao" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/projetos">Projetos</a></li>
                             </ul>
                         </nav>
                       <?php
@@ -150,7 +150,7 @@ if (!function_exists('get_cpt_field')) {
     global $post;
     return get_post_meta($post->ID, $field, true);
   }
-} 
+}
 if (!function_exists('the_cpt_field')) {
   function the_cpt_field($field) {
     global $post;
@@ -163,7 +163,7 @@ function premios_query( $query ) {
         return;
     }
 }
-add_action( 'pre_get_posts', 'premios_query' ); 
+add_action( 'pre_get_posts', 'premios_query' );
 
 // Adicionando classes dos campos
 

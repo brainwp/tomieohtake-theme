@@ -102,7 +102,7 @@ get_header('inscricao'); ?>
 											array(
 												'taxonomy' => 'category',
 												'field'    => 'name',
-												'terms'    => '2018',
+												'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
 											),
 										),
 									);

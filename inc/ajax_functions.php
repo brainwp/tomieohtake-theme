@@ -62,7 +62,7 @@ function pega_user(){
         array(
           'taxonomy' => 'category',
           'field'    => 'name',
-          'terms'    => '2018',
+          'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
         ),
       ),
     );
@@ -162,7 +162,7 @@ function query_user_ajax(){
           array(
             'taxonomy' => 'category',
             'field'    => 'name',
-            'terms'    => '2018',
+            'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
           ),
         ),
       );

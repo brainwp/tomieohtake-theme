@@ -48,7 +48,7 @@
   					'post_id'		=> 'post_'.$post_id,
 						'field_groups' => array('group_5abeabb3f186a'),
   					'submit_value'		=> 'Atualizar',
-            'html_after_fields' => '<input type="hidden" name="post_category" value="2018"/>',
+            'html_after_fields' => '<input type="hidden" name="post_category" value="PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN"/>',
             'updated_message' => __("Inscrição atualizada!", 'acf'),
 
 

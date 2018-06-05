@@ -4,9 +4,9 @@ function inscricoes() {
 
 	$labels = array(
 		'name'                  => _x( 'Inscrições', 'Post Type General Name', 'bza_inscricoes' ),
-		'singular_name'         => _x( 'Inscrição', 'Post Type Singular Name', 'bza_inscricoes' ),
-		'menu_name'             => __( 'Inscrição', 'bza_inscricoes' ),
-		'name_admin_bar'        => __( 'Inscrição', 'bza_inscricoes' ),
+		'singular_name'         => _x( 'Projeto', 'Post Type Singular Name', 'bza_inscricoes' ),
+		'menu_name'             => __( 'Projetos', 'bza_inscricoes' ),
+		'name_admin_bar'        => __( 'Projeto', 'bza_inscricoes' ),
 		'archives'              => __( 'Item Archives', 'bza_inscricoes' ),
 		'attributes'            => __( 'Item Attributes', 'bza_inscricoes' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'bza_inscricoes' ),
@@ -30,10 +30,12 @@ function inscricoes() {
 		'items_list'            => __( 'Items list', 'bza_inscricoes' ),
 		'items_list_navigation' => __( 'Items list navigation', 'bza_inscricoes' ),
 		'filter_items_list'     => __( 'Filter items list', 'bza_inscricoes' ),
+
 	);
 	$args = array(
-		'label'                 => __( 'Inscrição', 'bza_inscricoes' ),
-		'description'           => __( 'Inscrições de candidatos', 'bza_inscricoes' ),
+		'rewrite' => array('slug' => 'inscricoes'),
+		'label'                 => __( 'Projeto', 'bza_inscricoes' ),
+		'description'           => __( 'Projetos de candidatos', 'bza_inscricoes' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'author', ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
@@ -45,7 +47,7 @@ function inscricoes() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => 'true',
+		'has_archive'           => 'projetos',
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',

@@ -129,7 +129,7 @@ function trac_update_userdata( $post_id ) {
      // insert the post
      $post_id = wp_insert_post( $post );
     //  adiciona a categoria (qual o edital/concurso)
-     $termo=get_term_by( 'name', '2018', 'category' );
+     $termo=get_term_by( 'name', 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN', 'category' );
      wp_set_post_terms( $post_id, $termo->term_id, 'category' );
      // return the new ID
      do_action('acf/save_post', $post_id);
@@ -484,7 +484,7 @@ add_action( 'admin_menu', 'linked_url' );
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'name',
-						'terms'    => 'PRÊMIO EDP NAS ARTES 2018',
+						'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
 					),
 				),
 			);

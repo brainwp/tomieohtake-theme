@@ -17,7 +17,14 @@ get_header(); ?>
 
 		<div class="page-header">
 			<div class="container">
-				<h1 class="page-title">Inscrições</h1>
+				<h1 class="page-title">Projetos</h1>
+				<?php $countPosts = $wp_the_query->post_count;
+					if ($countPosts < 5 && $countPosts > 0) {?>
+						<p><?php echo 'Quer inscrever outro projeto?  Clique <a href="'.get_home_url().'/inscricao">aqui!</a>'; ?></p>
+						<?php
+					}
+				 ?>
+
 			</div><!-- container -->
 		</div><!-- page-header -->
 
@@ -33,23 +40,35 @@ get_header(); ?>
 					<?php while ( have_posts() ) : the_post(); ?>
 
 
-						<article id="post-<?php the_ID(); ?>" <?php post_class( array('list-article', 'clearfix') ); ?>>
+						<article id="post-<?php the_ID(); ?>" <?php post_class( array('list-projects', 'clearfix') ); ?>>
 
 							<div class="list-article-thumb">
 								<a href="<?php echo esc_url( get_permalink() ); ?>">
 
 								</a>
 							</div>
+							<?php
+								$post_meta=get_post_meta( get_the_id());
+								$email = get_the_author_meta( 'user_email' );
+								$nome = get_the_author_meta( 'user_email' );
+								$user_id = get_the_author_meta( 'ID' );
+								$user_meta=get_user_meta( $user_id);
+								// print_r($post_meta['nome_do_projeto'][0]);
+							?>
 
-							<div class="list-article-content">
+							<div class="list-projects-content">
 								<div class="list-article-meta">
 									<?php
 										$categorias=get_the_category();
-										print_r( $categorias[0]->name);
+										// print_r( $categorias[0]->name);
 									 ?>
 								</div>
 								<header class="entry-header">
-									<p>Nome Artistico:<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?></p>
+									<p>Nome do projeto: <a href="<?php echo get_post_permalink( get_the_id() );?>"> <?php  echo $post_meta['nome_do_projeto'][0] ?></a></p>
+									<p>Nome do Candidatos: <?php echo $user_meta['nome'][0];?></p>
+									<p>E-mail: <?php echo $email;?></p>
+
+
 								</header><!-- .entry-header -->
 								<div class="entry-excerpt">
 									<?php
@@ -67,6 +86,8 @@ get_header(); ?>
 						</article><!-- #post-## -->
 
 					<?php endwhile; ?>
+					<div class="clearfix"></div>
+
 
 					<?php the_posts_navigation(); ?>
 
@@ -75,10 +96,10 @@ get_header(); ?>
 
 					<section class="no-results not-found">
 
-						<h2><?php esc_html_e( 'Nenhuma inscrição.', 'coletivo' ); ?></h2>
+						<h2><?php esc_html_e( 'Nenhum projeto cadastrado.', 'coletivo' ); ?></h2>
 						<div class="page-content">
 
-								<p><?php esc_html_e( 'Você não está inscrito. Clique <a href="'.get_home_url().'/cadastro-edicao-de-usuarios">aqui para se inscrever</a>', 'coletivo' ); ?></p>
+								<p><?php echo 'Você não tem projetos inscritos. Clique <a href="'.get_home_url().'/inscricao">aqui para se inscrever</a>'; ?></p>
 
 						</div><!-- .page-content -->
 					</section><!-- .no-results -->
