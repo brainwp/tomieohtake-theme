@@ -17,8 +17,8 @@
                     <div class="col-md-2">
                         <h3>&nbsp;</h3>
                         <br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_rouanet.png" style="width: 80px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_proacsp.png" style="width: 100px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_rouanet.png" style="width: 80px;margin-top:10px">
+                        <!--<img src="<?php // echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_proacsp.png" style="width: 100px;"> -->
                     </div>
                     <div class="col-md-2">
                         <h3>PATROCÍNIO</h3>
@@ -50,8 +50,8 @@
                      <div class="col-md-2">
                         <h3>REALIZAÇÃO</h3>
                         <br /><br />
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_govsp.png" style="width: 160px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_minc.png" style="width: 160px;">
+                        <!-- <img src="<?php // echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_govsp.png" style="width: 160px;"> -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_minc.png" style="width: 160px;margin-top:15px">
                     </div>
                 </div>
                 <hr>
