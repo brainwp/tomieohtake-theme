@@ -1,4 +1,8 @@
-<?php acf_form_head(); ?>
+<?php
+if (is_user_logged_in() || current_user_can( 'jurado' )) {
+ wp_redirect( get_home_url().'/inscritos' );
+}
+ acf_form_head(); ?>
 <?php
 /**
  *Template Name: Cadastro

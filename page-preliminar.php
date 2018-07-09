@@ -6,7 +6,7 @@
  *
  * @package coletivo
  */
- if (is_user_logged_in()) {
+ if (is_user_logged_in() || current_user_can( 'jurado' )) {
  	wp_redirect( get_home_url().'/cadastro-edicao-de-usuarios' );
 
  }

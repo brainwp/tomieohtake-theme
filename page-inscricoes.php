@@ -1,7 +1,10 @@
 <?php
 
-	if (!is_user_logged_in()) {
+	if (!is_user_logged_in() ) {
 		wp_redirect( get_home_url().'/cadastro-edicao-de-usuarios' );
+	}
+	if(current_user_can( 'jurado' )){
+		wp_redirect( get_home_url().'/inscritos' );
 
 	}
 
