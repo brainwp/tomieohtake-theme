@@ -32,6 +32,29 @@ get_header('inscricao'); ?>
 					<div class="col-md-12" id="login-preliminar">
             <div class="candidatos">
   						<?php
+              $args = array(
+              	'role'         => 'jurado',
+               );
+               $users = get_users( $args );
+               $array_metas =  array(
+                 'relation' => 'OR',
+       					// array(
+                //    'key' => 'finalista-2018_33',
+                //    'value' => 1
+                //  ),
+                //  array(
+                //     'key' => 'finalista-2018_30',
+                //     'value' => 1
+                //   )
+       				);
+
+               foreach ($users as $user => $user_object) {
+                 $array = array(
+         						'key' => 'finalista-2018_'.$user_object->ID,
+         						'value' =>  1,
+         				);
+                array_push($array_metas, $array);
+               }
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
               // add_post_meta( 356, 'inscricao_completa', 1, true );
@@ -48,13 +71,7 @@ get_header('inscricao'); ?>
 				  ),
 
 			  );
-				$args['meta_query']= array(
-					array(
-						'key' => 'finalista-2018',
-						'value' =>  true,
-
-					)
-				);
+				$args['meta_query']= $array_metas;
 			  $posts = get_posts($args);
 								// print_r($posts);
 								if (!$posts) {

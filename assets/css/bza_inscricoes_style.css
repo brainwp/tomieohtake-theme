@@ -167,3 +167,14 @@ form#login-user a.close{
 .page-template-page-cadastrados-php .candidato label{
   display: none;
 }
+
+.page-template-page-finalistas-jur .candidato{
+  overflow:hidden;
+}
+.page-template-page-finalistas-jur .candidato button{
+  float:right;
+  margin-left:10px;
+}
+.page-template-page-finalistas-jur .cada-jurado{
+  margin-bottom: 30px;
+}

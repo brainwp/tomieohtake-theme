@@ -32,6 +32,7 @@ get_header('inscricao'); ?>
 					<div class="col-md-12" id="login-preliminar">
             <div class="candidatos">
   						<?php
+              
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
               // add_post_meta( 356, 'inscricao_completa', 1, true );

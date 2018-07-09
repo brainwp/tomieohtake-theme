@@ -79,7 +79,7 @@ if ( ! function_exists( 'coletivo_site_header' ) ) {
                               	$nome= km_get_users_name($current_user->ID) ;
                                 echo $nome;
                                 ?>.</li>
-								<li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Dados do candidato</a></li>
+								<li id="user-menu-cadastro" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/cadastro-edicao-de-usuarios/">Dados do proponente</a></li>
                                 <li id="user-menu-inscricao" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo get_home_url() ?>/projetos">Projetos</a></li>
                             </ul>
                         </nav>

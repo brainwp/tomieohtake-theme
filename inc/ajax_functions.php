@@ -115,7 +115,8 @@ function marca_finalista(){
   //   echo json_encode('Já existem oito candidatos selecionados');
   // }
   // else {
-    $resultado = update_post_meta( $_POST['id'], 'finalista-2018', $_POST['valor'] );
+    $jurado = wp_get_current_user();
+    $resultado = update_post_meta( $_POST['id'], 'finalista-2018_'.$jurado->ID, $_POST['valor'] );
     echo json_encode($resultado);
   // }
     die();
