@@ -38,34 +38,35 @@ get_header('inscricao'); ?>
                 <input id="busca-nome" type="text" name="nome_completo" value="">
                 <input type="submit" id="label-busca-nome" value="">
                 <select name="estado" id="uf">
+
                   <option value="">Estado</option>
-                  <option value="AC/Acre">AC</option>
-                  <option value="AL/Alagoas">AL</option>
-                  <option value="AM/Amapá/Amapa">AM</option>
-                  <option value="AP/Amazonas">AP</option>
-                  <option value="BA/Bahia">BA</option>
-                  <option value="CE/Ceará/Ceara">CE</option>
-                  <option value="DF/Distrito Federal">DF</option>
-                  <option value="ES/Espírito Santo/Espirito Santo">ES</option>
-                  <option value="GO/Goiás/Goias">GO</option>
-                  <option value="MA/Maranhão/Maranhao">MA</option>
-                  <option value="MG/Mato Grosso">MG</option>
-                  <option value="MS/Mato Grosso do Sul">MS</option>
-                  <option value="MT/Minas Gerais">MT</option>
-                  <option value="PA/Pará/Para">PA</option>
-                  <option value="PB/Paraíba/Paraiba">PB</option>
-                  <option value="PE/Paraná/Parana">PE</option>
-                  <option value="PI/Pernambuco">PI</option>
-                  <option value="PR/Piauí/Piaui">PR</option>
-                  <option value="RJ/Rio de Janeiro">RJ</option>
-                  <option value="RN/Rio Grande do Sul">RN</option>
-                  <option value="RS/Rio Grande do Norte">RS</option>
-                  <option value="RO/Rondônia/Rondonia">RO</option>
-                  <option value="RR/Roraima">RR</option>
-                  <option value="SC/Santa Catarina">SC</option>
-                  <option value="SE/Sergipe">SE</option>
-                  <option value="SP/São Paulo/Sao Paulo">SP</option>
-                  <option value="TO/Tocantins">TO</option>
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AM">AM</option>
+                  <option value="AP">AP</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="DF">DF</option>
+                  <option value="ES">ES</option>
+                  <option value="GO">GO</option>
+                  <option value="MA">MA</option>
+                  <option value="MG">MG</option>
+                  <option value="MS">MS</option>
+                  <option value="MT">MT</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="PR">PR</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SE">SE</option>
+                  <option value="SP">SP</option>
+                  <option value="TO">TO</option>
                 </select>
               </form>
 
@@ -91,6 +92,14 @@ get_header('inscricao'); ?>
                           'compare' => 'LIKE'
                       );
 											array_push($args['meta_query'], $nome);
+                }
+                if (isset($_GET['estado'])) {
+                      $estado=array(
+                          'key' => 'estado',
+                          'value' =>  $_GET['estado'],
+                          'compare' => 'LIKE'
+                      );
+											array_push($args['meta_query'], $estado);
                 }
 
                 $candidatos = get_users($args);
