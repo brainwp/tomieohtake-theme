@@ -25,6 +25,9 @@ add_action( 'wp_ajax_nopriv_marcafinalista', 'marca_finalista' );
 add_action( 'wp_ajax_marcafinalista', 'marca_finalista' );
 add_action( 'wp_ajax_nopriv_queryuser', 'query_user_ajax' );
 add_action( 'wp_ajax_queryuser', 'query_user_ajax' );
+add_action( 'wp_ajax_nopriv_pegainscricao', 'pega_inscricao' );
+add_action( 'wp_ajax_pegainscricao', 'pega_inscricao' );
+
 
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
@@ -129,7 +132,7 @@ function trac_update_userdata( $post_id ) {
      // insert the post
      $post_id = wp_insert_post( $post );
     //  adiciona a categoria (qual o edital/concurso)
-     $termo=get_term_by( 'name', 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN', 'category' );
+     $termo=get_term_by( 'name', '2018', 'category' );
      wp_set_post_terms( $post_id, $termo->term_id, 'category' );
      // return the new ID
      do_action('acf/save_post', $post_id);
@@ -484,7 +487,7 @@ add_action( 'admin_menu', 'linked_url' );
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'name',
-						'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
+						'terms'    => '2018',
 					),
 				),
 			);
@@ -494,4 +497,14 @@ add_action( 'admin_menu', 'linked_url' );
 			}
 		}
 		return $contador;
+}
+add_filter( 'ajax_query_attachments_args', 'wpb_show_current_user_attachments' );
+
+function wpb_show_current_user_attachments( $query ) {
+    $user_id = get_current_user_id();
+    if ( $user_id && !current_user_can('activate_plugins') && !current_user_can('edit_others_posts
+') ) {
+        $query['author'] = $user_id;
+    }
+    return $query;
 }

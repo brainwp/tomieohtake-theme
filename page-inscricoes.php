@@ -16,17 +16,15 @@
 			array(
 				'taxonomy' => 'category',
 				'field'    => 'name',
-				'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
+				'terms'    => '2018',
 			),
 		),
 	);
 
 	// The Query
 	$query = new WP_Query( $args );
-	if($query->post_count != 0 ){
-		$post=$query->posts[0];
-		$link=get_permalink($post);
-		wp_redirect( $link );
+	if($query->post_count > 4 ){
+		wp_redirect( get_home_url().'/projetos' );
 	}
 
 acf_form_head(); ?>

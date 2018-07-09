@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
           success: function(data){
             $('#links-user #cadastro').html('<div>'+data['perfil_completo']+'</div>');
             $('#links-user #cadastro').append('<div>'+data['rg_verificado']+'</div>');
-            $('#links-user #cadastro').append('<div><button class="btn btn-theme-primary">Ver DADOS DO PROPONENTE</button></div>');
+            $('#links-user #cadastro').append('<div><button class="btn btn-theme-primary">Ver DADOS ARQUITETO PROPONENTE</button></div>');
             if (data['modal_inscricao']) {
               $('#links-user #inscricao').html('<div><b>Inscrição de projeto - </b>  Completa</div>');
               // $('#links-user #inscricao').html('<div>'+data['inscricao_completa']+'</div>');
@@ -97,7 +97,6 @@ jQuery(document).ready(function($) {
             $('.candidatos').removeClass('desativado');
             $('#modal-cadastro').html('<a id="fechar" href="#">X</a>'+data['modal_cadastro']);
             $('#modal-inscricao').html('<a id="fechar" href="#">X</a>'+data['modal_inscricao']);
-            console.log(data['teste'])
             $('#links-user').fadeIn();
 
 
@@ -264,7 +263,6 @@ function verifica_box(elemento){
               'valor': valor
             },
           success: function(data){
-            console.log(data)
 						if ($("body").hasClass('page-template-page-proj-finalistas-php')) {
 							location.reload();
 						}

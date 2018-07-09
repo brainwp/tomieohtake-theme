@@ -37,7 +37,7 @@
         ?>
         <?php
           $categorias=get_the_category();
-          echo '<h2>'.$categorias[0]->name.": </h2>";
+          echo '<h2>PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN </h2>';
          ?>
 
           <?php
@@ -48,7 +48,7 @@
   					'post_id'		=> 'post_'.$post_id,
 						'field_groups' => array('group_5abeabb3f186a'),
   					'submit_value'		=> 'Atualizar',
-            'html_after_fields' => '<input type="hidden" name="post_category" value="PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN"/>',
+            'html_after_fields' => '<input type="hidden" name="post_category" value="2018"/>',
             'updated_message' => __("Inscrição atualizada!", 'acf'),
 
 

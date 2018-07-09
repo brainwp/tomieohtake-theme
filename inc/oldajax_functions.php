@@ -115,7 +115,7 @@ function marca_finalista(){
   //   echo json_encode('Já existem oito candidatos selecionados');
   // }
   // else {
-    $resultado = update_post_meta( $_POST['id'], 'finalista-2018', $_POST['valor'] );
+    $resultado = update_user_meta( $_POST['id'], 'finalista-2018', $_POST['valor'] );
     echo json_encode($resultado);
   // }
     die();
@@ -210,66 +210,3 @@ function query_user_ajax(){
 
   die();
 }
-// pega inscricao
-function pega_inscricao(){
-  if (isset($_POST['user_id'])) {
-    $user_id=$_POST['user_id'];
-		$post_id=$_POST['post_id'];
-    $rg_verificado = (1 == get_user_meta($user_id, 'rg_verificado', true)) ? '<b>RG verificado - </b> Sim' : '<b>RG verificado - </b>Não'; // $r is set to 'Yes'
-    $modal_cadastro='';
-    $campos_user=get_fields("user_".$user_id);
-    $perfil_completo = ( $campos_user['nome_completo']) ? '<b>Completo - </b> Sim' : '<b>Completo - </b> Não'; // $r is set to 'Yes'
-    foreach ($campos_user as $campo => $valor) {
-      if ($campo != 'senha' && $campo != 'confirmacao_da_senha') {
-        if ($campo == 'formacao_doc_digitalizado' || $campo == 'rg_digitalizado' ||$campo == 'cpf_digitalizado') {
-          $valor = '<br><img class="rg-user" src="'.$valor['url'].'">';
-        }
-        elseif($campo == 'nome_completo' && !$valor){
-          $valor = 'Usuário não adicionou nome completo';
-        }
-        $objeto_campo = get_field_object($campo,"user_".$user_id);
-        $nome_campo = $objeto_campo['label'];
-         $modal_cadastro .= '<div><b>'.$nome_campo.': </b>'.$valor.'</div>';
-        $teste[$nome_campo]=$valor;
-      }
-    }
-    $checked = (1 == get_user_meta($user_id, 'rg_verificado', true)) ? 'checked' : '';
-    $modal_cadastro .= '<form id="form-rg">
-    <div class="acf-label">
-    <label for="rg-verificado-checkbox">RG verificado</label>
-    <input type="checkbox" id="rg-verificado-checkbox" name="rg-verificado-checkbox" value="1" '.$checked.' >
-		<input type="hidden" id="user-id-rg" name="user-id-rg" value="'.$user_id.'" >
-		<input type="hidden" id="post-id-rg" name="post-id-rg" value="'.$post_id.'" >
-    <input type="submit" id="rg-verificado-submit" name="rg-verificado-submit" value="Salvar" >
-    </div>
-    </form>
-    ';
-    $post=get_post( $post_id );
-		$campos_inscricao=get_fields($post->ID);
-		foreach ($campos_inscricao as $campo_insc => $valor_insc) {
-			if ($campo_insc == 'projeto' || $campo_insc == 'orcamento_cronograma') {
-				$path = parse_url($valor_insc['url'], PHP_URL_PATH);
-				$path = explode('&',$path);
-				$filename = $path[0];
-				$valor_insc = '<a target="_blank" href="'.$valor_insc['url'].'">'.basename($filename).'</a>';
-			}
-			if ($campo_insc == 'nome_do_projeto') {
-				$objeto_campo = get_field_object($campo_insc,$post->ID);
-				$nome_campo = $objeto_campo['label'];
-				$modal_inscricao .= '<br><div><b>'.$nome_campo.': </b><h3>'.$valor_insc.'</h3></div>';
-			}
-			else{
-				$objeto_campo = get_field_object($campo_insc,$post->ID);
-				$nome_campo = $objeto_campo['label'];
-				$modal_inscricao .= '<div><b>'.$nome_campo.': </b>'.$valor_insc.'</div>';
-				$teste=$post->ID;
-			}
-		}
-    echo json_encode(array('rg_verificado'=>$rg_verificado,'id'=>$user_id, 'perfil_completo'=>$perfil_completo, 'inscricao_completa'=>$inscricao_completa,'modal_cadastro'=>$modal_cadastro, 'modal_inscricao'=>$modal_inscricao, 'message'=>__('Sucesso!')));
-  }
-  else {
-    echo json_encode(array('id'=>'nao sssei', 'message'=>__('duh!')));
-  }
-  die();
-}
-// pega inscricao

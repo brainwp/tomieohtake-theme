@@ -51,7 +51,7 @@
 					array(
 						'taxonomy' => 'category',
 						'field'    => 'name',
-						'terms'    => 'PRÊMIO DE DESIGN INSTITUTO TOMIE OHTAKE LEROY MERLIN',
+						'terms'    => '2018',
 
 					),
 				),

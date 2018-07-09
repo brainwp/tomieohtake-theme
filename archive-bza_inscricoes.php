@@ -50,7 +50,7 @@ get_header(); ?>
 							<?php
 								$post_meta=get_post_meta( get_the_id());
 								$email = get_the_author_meta( 'user_email' );
-								$nome = get_the_author_meta( 'nome_completo' );
+								$nome = get_the_author_meta( 'user_email' );
 								$user_id = get_the_author_meta( 'ID' );
 								$user_meta=get_user_meta( $user_id);
 								// print_r($post_meta['nome_do_projeto'][0]);
@@ -64,10 +64,11 @@ get_header(); ?>
 									 ?>
 								</div>
 								<header class="entry-header">
-									<p>Nome do projeto: <a href="<?php echo get_post_permalink( get_the_id() );?>"> <?php echo $post_meta['nome_do_projeto'][0] ?></a></p>
+									<p>Nome do projeto: <a href="<?php echo get_post_permalink( get_the_id() );?>"> <?php  echo $post_meta['nome_do_projeto'][0] ?></a></p>
 									<p>Nome do Candidato: <?php echo $user_meta['nome_completo'][0];?></p>
 									<p>E-mail: <?php echo $email;?></p>
-									<p>Tipo de Projeto: <?php  echo $post_meta['tipo_projeto'][0] ?></p>
+
+
 								</header><!-- .entry-header -->
 								<div class="entry-excerpt">
 									<?php

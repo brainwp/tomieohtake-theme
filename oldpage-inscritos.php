@@ -24,15 +24,15 @@ get_header('inscricao'); ?>
 		</div>
 		<?php endif;?>
 		<div id="content-inside" class="container no-sidebar">
+		<br />
+		<h1 class="fullheader-title">
+			Inscritos
+		</h1>
 			<div id="primary" class="content-area">
-        <br />
-        <h1 class="fullheader-title">
-          Inscritos
-        </h1>
 				<main id="main" class="site-main" role="main">
             <div class="candidatos-lista col-md-6">
             <h2 class="fullheader-title">Lista <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a></h2>
-						<?php echo "número total de candidatos com projetos: ".cont_proj();?>
+						<?php echo "número total de candidatos inscritos: ".cont_proj();?>
 
               <form class="" action="" method="get">
                 <input id="busca-nome" type="text" name="nome" value="">
@@ -86,7 +86,7 @@ get_header('inscricao'); ?>
 
                 if (isset($_GET['nome'])) {
                       $nome=array(
-                          'key' => 'nome',
+                          'key' => 'nome_completo',
                           'value' =>  $_GET['nome'],
                           'compare' => 'LIKE'
                       );
@@ -109,42 +109,33 @@ get_header('inscricao'); ?>
 									$query = new WP_Query( $args );
 									if($query->post_count != 0 ){
 	                  ?>
+	                  <div id="<?php echo $value->ID ?>" class="candidato">
 	                    <?php
-	                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
+	                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou a inscrição.';
 	                    $user_id = $value->ID;
-											foreach ($query->posts as $post ) {?>
-												<div id="<?php echo $value->ID ?>" class="candidato">
-
-													<a href="#" class="inscricao_ajax" data-user-id="<?php echo $user_id;?>" data-id="<?php echo $post->ID;?>">
-			                      <?php echo $user_nome." - ". get_field('nome_do_projeto',  $post->ID ); ?>
-			                    </a>
-													<?php $checked = (1 == get_post_meta($post->ID, 'finalista-2018', true)) ? 'checked' : '';?>
-														<input class="seleciona-candidato" type="checkbox" data-id="<?php echo $post->ID;?>" id="user_<?php echo $post->ID;?>"  value="1" <?php echo $checked ?>/>
-														<label for="user_<?php echo $post->ID;?>">
-														</label>
-														<br>
-												</div>
-
-												<?php
-											}
-											// print_r($query->posts);
-											?>
-
-
-
+	                    ?>
+	                    <a href="#" class="user_ajax" data-id="<?php echo $user_id;?>">
+	                      <?php echo $user_nome; ?>
+	                    </a>
+	                    <?php $checked = (1 == get_user_meta($user_id, 'finalista-2018', true)) ? 'checked' : '';?>
+	                      <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $user_id;?>" id="user_<?php echo $user_id;?>"  value="1" <?php echo $checked ?>/>
+	                      <label for="user_<?php echo $user_id;?>">
+	                      </label>
+	                      <br>
 
 	                    <?php
 	                    // print_r($value->ID);
 	                    // echo "mais uma<br>";
 	                    ?>
+	                	</div>
 	                <?php
 									}
-                } //fecha foreach ($candidatos as $candidato => $value)
+                }
               ?>
             </div>
 					</div>
 					<div class="col-md-6" id="mostra-user-ajax">
-					<h2 class="fullheader-title">Inscrição do projeto</h2>
+					<h2 class="fullheader-title">Inscrição</h2>
           <div id="dados-user">
             <h3 id="nome-user">Escolha um usuário para visualizar</h3>
             <div id="links-user">
