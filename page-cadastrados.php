@@ -36,7 +36,7 @@ get_header('inscricao'); ?>
 							<form class="" action="" method="get">
 								<input id="busca-nome" type="text" name="nome" value="">
 								<input type="submit" id="label-busca-nome" value="">
-								<select name="cidade__estado__pais_de_residencia" id="uf">
+								<select name="estado" id="uf">
 									<option value="">Estado</option>
 									<option value="AC/Acre">AC</option>
 									<option value="AL/Alagoas">AL</option>

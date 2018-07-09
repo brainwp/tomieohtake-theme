@@ -363,6 +363,7 @@ function verifica_box(elemento){
       var elemento = $(this);
       nome = elemento.attr('name');
       valor = elemento.val();
+      document.location.href = '/inscritos/?estado='+valor;
       if ($('body').hasClass('page-template-page-cadastrados-php')) {
         page='cadastrados';
       }
@@ -370,7 +371,7 @@ function verifica_box(elemento){
         page='inscritos';
       }
       var metas={
-        'uf' : valor,
+        'estado' : valor,
       }
       console.log(metas);
 

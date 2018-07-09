@@ -35,9 +35,9 @@ get_header('inscricao'); ?>
 						<?php echo "número total de candidatos com projetos: ".cont_proj();?>
 
               <form class="" action="" method="get">
-                <input id="busca-nome" type="text" name="nome" value="">
+                <input id="busca-nome" type="text" name="nome_completo" value="">
                 <input type="submit" id="label-busca-nome" value="">
-                <select name="cidade__estado__pais_de_residencia" id="uf">
+                <select name="estado" id="uf">
                   <option value="">Estado</option>
                   <option value="AC/Acre">AC</option>
                   <option value="AL/Alagoas">AL</option>
@@ -84,10 +84,10 @@ get_header('inscricao'); ?>
                 );
 								$args['meta_query']= array();
 
-                if (isset($_GET['nome'])) {
+                if (isset($_GET['nome_completo'])) {
                       $nome=array(
-                          'key' => 'nome',
-                          'value' =>  $_GET['nome'],
+                          'key' => 'nome_completo',
+                          'value' =>  $_GET['nome_completo'],
                           'compare' => 'LIKE'
                       );
 											array_push($args['meta_query'], $nome);
