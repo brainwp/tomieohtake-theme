@@ -35,39 +35,44 @@ get_header('inscricao'); ?>
 						<?php echo "número total de candidatos com projetos: ".cont_proj();?>
 
               <form class="" action="" method="get">
-                <input id="busca-nome" type="text" name="nome_completo" value="">
+                <input id="busca-nome" type="text" name="nome_completo" value="<?php echo (isset($_GET['nome_completo']) ?  $_GET['nome_completo']  :  "" ); ?>">
                 <input type="submit" id="label-busca-nome" value="">
                 <select name="estado" id="uf">
 
                   <option value="">Estado</option>
-                  <option value="AC">AC</option>
-                  <option value="AL">AL</option>
-                  <option value="AM">AM</option>
-                  <option value="AP">AP</option>
-                  <option value="BA">BA</option>
-                  <option value="CE">CE</option>
-                  <option value="DF">DF</option>
-                  <option value="ES">ES</option>
-                  <option value="GO">GO</option>
-                  <option value="MA">MA</option>
-                  <option value="MG">MG</option>
-                  <option value="MS">MS</option>
-                  <option value="MT">MT</option>
-                  <option value="PA">PA</option>
-                  <option value="PB">PB</option>
-                  <option value="PE">PE</option>
-                  <option value="PI">PI</option>
-                  <option value="PR">PR</option>
-                  <option value="RJ">RJ</option>
-                  <option value="RN">RN</option>
-                  <option value="RS">RS</option>
-                  <option value="RO">RO</option>
-                  <option value="RR">RR</option>
-                  <option value="SC">SC</option>
-                  <option value="SE">SE</option>
-                  <option value="SP">SP</option>
-                  <option value="TO">TO</option>
+                  <option value="AC" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'AC' ?  'selected' :  "" ); ?>>AC</option>
+                  <option value="AL" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'AL' ?  'selected' :  "" ); ?>>AL</option>
+                  <option value="AM" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'AM' ?  'selected' :  "" ); ?>>AM</option>
+                  <option value="AP" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'AP' ?  'selected' :  "" ); ?>>AP</option>
+                  <option value="BA" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'BA' ?  'selected' :  "" ); ?>>BA</option>
+                  <option value="CE" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'CE' ?  'selected' :  "" ); ?>>CE</option>
+                  <option value="DF" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'DF' ?  'selected' :  "" ); ?>>DF</option>
+                  <option value="ES" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'ES' ?  'selected' :  "" ); ?>>ES</option>
+                  <option value="GO" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'GO' ?  'selected' :  "" ); ?>>GO</option>
+                  <option value="MA" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'MA' ?  'selected' :  "" ); ?>>MA</option>
+                  <option value="MG" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'MG' ?  'selected' :  "" ); ?>>MG</option>
+                  <option value="MS" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'MS' ?  'selected' :  "" ); ?>>MS</option>
+                  <option value="MT" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'MT' ?  'selected' :  "" ); ?>>MT</option>
+                  <option value="PA" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'PA' ?  'selected' :  "" ); ?>>PA</option>
+                  <option value="PB" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'PB' ?  'selected' :  "" ); ?>>PB</option>
+                  <option value="PE" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'PE' ?  'selected' :  "" ); ?>>PE</option>
+                  <option value="PI" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'PI' ?  'selected' :  "" ); ?>>PI</option>
+                  <option value="PR" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'PR' ?  'selected' :  "" ); ?>>PR</option>
+                  <option value="RJ" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'RJ' ?  'selected' :  "" ); ?>>RJ</option>
+                  <option value="RN" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'RN' ?  'selected' :  "" ); ?>>RN</option>
+                  <option value="RS" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'RS' ?  'selected' :  "" ); ?>>RS</option>
+                  <option value="RO" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'RO' ?  'selected' :  "" ); ?>>RO</option>
+                  <option value="RR" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'RR' ?  'selected' :  "" ); ?>>RR</option>
+                  <option value="SC" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'SC' ?  'selected' :  "" ); ?>>SC</option>
+                  <option value="SE" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'SE' ?  'selected' :  "" ); ?>>SE</option>
+                  <option value="SP" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'SP' ?  'selected' :  "" ); ?>>SP</option>
+                  <option value="TO" <?php echo (isset($_GET['estado']) && $_GET['estado'] == 'TO' ?  'selected' :  "" ); ?>>TO</option>
                 </select>
+                <select name="order" id="order">
+                  <option value="por-date" <?php echo (isset($_GET['order']) && $_GET['order'] == 'por-date' ?  'selected' :  "" ); ?>>Por data</option>
+                  <option value="por-nome_completo"  <?php echo (isset($_GET['order']) && $_GET['order'] == 'por-nome_completo' ?  'selected' :  "" ); ?>>Por nome</option>
+                  <option value="por-estado" <?php echo (isset($_GET['order']) && $_GET['order'] == 'por-estado' ?  'selected' :  "" ); ?> >Por estado</option>
+              </select>
               </form>
 
 						<div class="clearfix">
@@ -79,9 +84,24 @@ get_header('inscricao'); ?>
               // add_user_meta( 212, 'perfil_completo', '1', true );
               // add_user_meta( 218, 'perfil_completo', 1, true );
               // add_post_meta( 356, 'inscricao_completa', 1, true );
-
+                $meta_key = '';
+                $orderby = '';
+              if (isset($_GET['order'])) {
+                    $orderby = explode('-', $_GET['order']);
+                    $orderby = $orderby[1];
+                    echo $orderby;
+                    if ($orderby != 'date') {
+                      $meta_key = $orderby;
+                      $orderby = 'meta_value';
+                    }
+              }
+              echo $meta_key;
+              echo $orderby;
                 $args = array(
   	                'role'         => 'candidato',
+                    'meta_key'     => $meta_key,
+                    'orderby'      => $orderby,
+                    'order'        =>'ASC'
                 );
 								$args['meta_query']= array();
 
@@ -102,6 +122,7 @@ get_header('inscricao'); ?>
 											array_push($args['meta_query'], $estado);
                 }
 
+
                 $candidatos = get_users($args);
                 foreach ($candidatos as $candidato => $value) {
 									$args = array(
@@ -119,13 +140,15 @@ get_header('inscricao'); ?>
 									if($query->post_count != 0 ){
 	                  ?>
 	                    <?php
-	                    $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
+                      $user_nome = ( get_field('nome_completo', 'user_'.$value->ID) ) ? get_field('nome_completo', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
+                      $user_UF  = ( get_field('estado', 'user_'.$value->ID) ) ? get_field('estado', 'user_'.$value->ID) : 'Usuário não completou o cadastro.';
 	                    $user_id = $value->ID;
 											foreach ($query->posts as $post ) {?>
 												<div id="<?php echo $value->ID ?>" class="candidato">
-
+                          <?php echo $user_UF;?>
 													<a href="#" class="inscricao_ajax" data-user-id="<?php echo $user_id;?>" data-id="<?php echo $post->ID;?>">
-			                      <?php echo $user_nome." - ". get_field('nome_do_projeto',  $post->ID ); ?>
+                            <?php echo $user_nome." - ". get_field('nome_do_projeto',  $post->ID ); ?>
+                            <?php echo  get_the_date( 'D M j', $post->ID  );?>
 			                    </a>
 													<?php
                           $jurado = wp_get_current_user();

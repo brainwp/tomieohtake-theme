@@ -356,40 +356,40 @@ function verifica_box(elemento){
       });
       e.preventDefault();
     });
-
-    $('.page-template-page-inscritos-php #uf, .page-template-page-cadastrados-php #uf').on('change', function(e){
-      $('.candidato').remove();
-      $('#dados-user').html(' <h3 id="nome-user">Escolha um usuário para visualizar</h3><div id="links-user"><div id="cadastro">Clique em um dos úsuários da lista para carregar suas informações.</div><div id="inscricao"></div></div><div id="user-loading"></div>')
-      var elemento = $(this);
-      nome = elemento.attr('name');
-      valor = elemento.val();
-      document.location.href = '/inscritos/?estado='+valor;
-      if ($('body').hasClass('page-template-page-cadastrados-php')) {
-        page='cadastrados';
-      }
-      else{
-        page='inscritos';
-      }
-      var metas={
-        'estado' : valor,
-      }
-      console.log(metas);
-
-      $.ajax({
-          type: 'POST',
-          dataType: 'json',
-          url: ajax_bza_inscricoes_object.ajaxurl,
-          data: {
-              'action': 'queryuser',
-              'metas': metas,
-              'page': page
-            },
-          success: function(data){
-            console.log(data);
-            $('.candidatos').append(data['html'])
-          }
-        });
-      });
+    //
+    // $('.page-template-page-inscritos-php #uf, .page-template-page-cadastrados-php #uf').on('change', function(e){
+    //   $('.candidato').remove();
+    //   $('#dados-user').html(' <h3 id="nome-user">Escolha um usuário para visualizar</h3><div id="links-user"><div id="cadastro">Clique em um dos úsuários da lista para carregar suas informações.</div><div id="inscricao"></div></div><div id="user-loading"></div>')
+    //   var elemento = $(this);
+    //   nome = elemento.attr('name');
+    //   valor = elemento.val();
+    //   document.location.href = '/inscritos/?estado='+valor;
+    //   if ($('body').hasClass('page-template-page-cadastrados-php')) {
+    //     page='cadastrados';
+    //   }
+    //   else{
+    //     page='inscritos';
+    //   }
+    //   var metas={
+    //     'estado' : valor,
+    //   }
+    //   console.log(metas);
+    //
+    //   $.ajax({
+    //       type: 'POST',
+    //       dataType: 'json',
+    //       url: ajax_bza_inscricoes_object.ajaxurl,
+    //       data: {
+    //           'action': 'queryuser',
+    //           'metas': metas,
+    //           'page': page
+    //         },
+    //       success: function(data){
+    //         console.log(data);
+    //         $('.candidatos').append(data['html'])
+    //       }
+    //     });
+    //   });
 
 
 
