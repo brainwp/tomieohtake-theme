@@ -178,7 +178,7 @@ jQuery(document).ready(function($) {
 
       $('#modal-cadastro').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php ,  .page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click',' #fechar', function(e){
+      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php ,  .page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click',' #fechar', function(e){
         $('#modal-cadastro').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -196,7 +196,7 @@ jQuery(document).ready(function($) {
 
       $('#modal-inscricao').fadeIn();
       e.preventDefault();
-      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php , .page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click','#fechar' ,function(e){
+      $('.page-template-page-inscritos-php , .page-template-page-cadastrados-php , .page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click','#fechar' ,function(e){
         $('#modal-inscricao').fadeOut(500);
         $('.login_overlay').fadeOut(500,function(){
           $('.login_overlay').remove()
@@ -250,7 +250,7 @@ function verifica_box(elemento){
     });
 
     // marca candidato como finalista
-    $('.page-template-page-proj-finalistas-php, .page-template-page-inscritos-php ').on('click','.seleciona-candidato', function(e){
+    $('.page-template-page-proj-finalistas-php, .page-template-page-inscritos-php, .page-template-page-finalistas-jur ').on('click','.seleciona-candidato', function(e){
 			console.log('teste');
       var valor = verifica_box($(this));
       var elemento = $(this);
@@ -277,7 +277,7 @@ function verifica_box(elemento){
       });
 
     });
-    $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click', '.inscricao-finalista', function(e){
+    $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click', '.inscricao-finalista', function(e){
       $('.candidatos').addClass('desativado');
       $('body').prepend('<div class="login_overlay"></div>');
       $('.login_overlay').fadeIn(500);
@@ -308,7 +308,7 @@ function verifica_box(elemento){
             $('#user-loading').fadeOut(500);
             $('#modal-inscricao').fadeIn();
             // $('#links-user').fadeIn();
-            $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click', '#fechar', function(e){
+            $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click', '#fechar', function(e){
               $('#modal-inscricao').fadeOut(500);
               $('.login_overlay').fadeOut(500,function(){
                 $('.login_overlay').remove()
@@ -320,7 +320,7 @@ function verifica_box(elemento){
       e.preventDefault();
     });
 
-    $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click','.cadastro-finalista', function(e){
+    $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click','.cadastro-finalista', function(e){
 			console.log('cadastro');
 			$('.candidatos').addClass('desativado');
       $('body').prepend('<div class="login_overlay"></div>');
@@ -345,7 +345,7 @@ function verifica_box(elemento){
             $('#user-loading').fadeOut(500);
             $('#modal-cadastro').fadeIn();
             // $('#links-user').fadeIn();
-            $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php ').on('click', '#fechar', function(e){
+            $('.page-template-page-finalistas-php, .page-template-page-proj-finalistas-php, .page-template-page-finalistas-jur ').on('click', '#fechar', function(e){
               $('#modal-cadastro').fadeOut(500);
               $('.login_overlay').fadeOut(500,function(){
                 $('.login_overlay').remove()

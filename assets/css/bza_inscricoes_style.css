@@ -168,13 +168,20 @@ form#login-user a.close{
   display: none;
 }
 
-.page-template-page-finalistas-jur .candidato{
+.page-template-page-finalistas-jur .candidato, .page-template-page-proj-finalistas .admin{
   overflow:hidden;
 }
-.page-template-page-finalistas-jur .candidato button{
+.page-template-page-finalistas-jur .candidato button,.page-template-page-proj-finalistas .admin button{
   float:right;
   margin-left:10px;
 }
 .page-template-page-finalistas-jur .cada-jurado{
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+}
+.page-template-page-proj-finalistas .seleciona-candidato, .page-template-page-proj-finalistas .admin label, .admin-bar .candidato label{
+
+  display:none;
+}
+.page-template-page-proj-finalistas #form-rg{
+  display:none;
 }

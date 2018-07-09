@@ -1,4 +1,9 @@
-<?php acf_form_head(); ?>
+<?php
+if 	( !current_user_can( 'administrator' ) ){
+ wp_redirect( get_home_url());
+
+}
+acf_form_head(); ?>
 <?php
 /**
 *Template Name: Finalistas por jurado
@@ -38,7 +43,7 @@ get_header('inscricao'); ?>
             $users = get_users( $args );
           foreach ($users as $user => $user_object) {
             ?><div class="cada-jurado"><?php
-            echo "<h3>Jurado: <b>".$user_object->user_nicename."</b></h3>";
+            echo "<h2>Jurado: <b>".$user_object->user_nicename."</b></h2>";
             $array_metas =  array(
               'relation' => 'OR',
               $array = array(
