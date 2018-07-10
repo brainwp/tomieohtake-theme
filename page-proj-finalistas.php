@@ -33,14 +33,14 @@ get_header('inscricao'); ?>
           <div class="candidatos">
             <?php
             $admin = 'admin';
-            $user="";
+            $current_user="";
             if (!current_user_can( 'administrator' )) {
               $admin = '';
-              $user = wp_get_current_user();
+              $current_user = wp_get_current_user();
               $array_metas =  array(
                 'relation' => 'OR',
                 array(
-                  'key' => 'finalista-2018_'.$user->ID,
+                  'key' => 'finalista-2018_'.$current_user->ID,
                   'value' => 1
                 ),
               );
@@ -98,7 +98,9 @@ get_header('inscricao'); ?>
                   <button data-id="<?php echo $user_id;?>" class="btn btn-theme-primary cadastro-finalista">DADOS DO PROPONENTE</button>
                   <button data-user-id="<?php echo $user_id;?>" data-id="<?php echo $post->ID;?>" class="btn btn-theme-primary inscricao-finalista">DADOS PROJETO</button>
 
-                  <?php $checked = (1 == get_post_meta($post->ID, 'finalista-2018_'.$user->ID, true)) ? 'checked' : '';?>
+                  <?php
+                    $checked = (1 == get_post_meta($post->ID, 'finalista-2018_'.$current_user->ID, true)) ? 'checked' : '';
+                  ?>
                   <input class="seleciona-candidato" type="checkbox" data-id="<?php echo $post->ID;?>" id="user_<?php echo $post->ID;?>"  value="1" <?php echo $checked ?>/>
                   <label for="user_<?php echo $post->ID;?>">
                   </label>
