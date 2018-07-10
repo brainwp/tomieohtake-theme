@@ -42,6 +42,7 @@
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_folha.png" style="width: 80px; float: left;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_piaui.png" style="width: 80px; float: left;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_trip.png" style="width: 80px; float: left;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ito_paitoan_logo_hometeka.png" style="width: 80px; float: left;">
                     </div>
                     <div class="col-md-2">
                         <h3 style="margin-left:-10px;">IDEALIZAÇÃO E<br> COORDENAÇÃO</h3>
