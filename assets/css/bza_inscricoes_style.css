@@ -157,6 +157,7 @@ form#login-user a.close{
   height: 41px;
   background-size: contain;
   background-image:url('../../images/img-search.png');
+  margin-top: 18px;
 }
 .page-template-page-finalistas-php #form-rg{
   display: none;
@@ -184,4 +185,11 @@ form#login-user a.close{
 }
 .page-template-page-proj-finalistas #form-rg{
   display:none;
+}
+.ordenacao,.filtros,.busca{
+  float: left;
+  margin-right: 15px;
+}
+.ordenacao h3,.filtros h3, .busca h3{
+  margin-bottom:5px;
 }
