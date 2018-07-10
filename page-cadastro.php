@@ -1,6 +1,9 @@
 <?php
-if (is_user_logged_in() || current_user_can( 'jurado' )) {
+if (is_admin() || current_user_can( 'jurado' )) {
  wp_redirect( get_home_url().'/inscritos' );
+}
+elseif(!is_user_logged_in()){
+  wp_redirect( get_home_url());
 }
  acf_form_head(); ?>
 <?php

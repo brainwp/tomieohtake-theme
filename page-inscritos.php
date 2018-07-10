@@ -101,8 +101,11 @@ get_header('inscricao'); ?>
                       $meta_key = $orderby;
                       $orderby = 'meta_value';
                     }
+                    else{
+                      $orderby = 'registered';
+                    }
               }
-            
+
                 $args = array(
   	                'role'         => 'candidato',
                     'meta_key'     => $meta_key,
@@ -153,6 +156,12 @@ get_header('inscricao'); ?>
 												<div id="<?php echo $value->ID ?>" class="candidato">
 													<a href="#" class="inscricao_ajax" data-user-id="<?php echo $user_id;?>" data-id="<?php echo $post->ID;?>">
                             <?php echo $user_nome." - ". get_field('nome_do_projeto',  $post->ID ); ?>
+                            <?php
+                            $udata = get_userdata( $user_id );
+                            $registered = $udata->user_registered;
+
+                            // echo date( "D M j h:i", strtotime( $registered ) );?>
+
 			                    </a>
 													<?php
                           $jurado = wp_get_current_user();
