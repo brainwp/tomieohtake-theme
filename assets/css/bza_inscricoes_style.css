@@ -150,14 +150,14 @@ form#login-user a.close{
   float:left;
 }
 #label-busca-nome{
-  background-color: transparent;
+  background-color: #CCC;
   display: inline-block;
   overflow: hidden;
   width: 41px;
   height: 41px;
   background-size: contain;
   background-image:url('../../images/img-search.png');
-  margin-top: 18px;
+  margin-top: 27px;
 }
 .page-template-page-finalistas-php #form-rg{
   display: none;

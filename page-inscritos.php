@@ -28,12 +28,12 @@ get_header('inscricao'); ?>
         <br />
         <h1 class="fullheader-title">
           Inscritos
+          <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a>
         </h1>
 				<main id="main" class="site-main" role="main">
-            <div class="candidatos-lista col-md-6">
-            <h2 class="fullheader-title">Lista <a class="btn btn-theme-primary" href="<?php echo get_permalink(); ?>">Ver todos</a></h2>
-						<?php echo "número total de candidatos com projetos: ".cont_proj();?>
-
+            <div class="candidatos-lista col-md-8">
+						<h3><?php echo "Total de candidatos com projetos: ".cont_proj();?>
+            </h3>
               <form class="" action="" method="get">
                 <div class="busca">
                   <h3>Buscar por nome:</h3>
@@ -190,7 +190,7 @@ get_header('inscricao'); ?>
               ?>
             </div>
 					</div>
-					<div class="col-md-6" id="mostra-user-ajax">
+					<div class="col-md-4" id="mostra-user-ajax">
 					<h2 class="fullheader-title">Inscrição do projeto</h2>
           <div id="dados-user">
             <h3 id="nome-user">Escolha um usuário para visualizar</h3>

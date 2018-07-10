@@ -25,7 +25,7 @@ function ajax_login(){
 function pega_user(){
   if (isset($_POST['id'])) {
     $id=$_POST['id'];
-    $rg_verificado = (1 == get_user_meta($id, 'rg_verificado', true)) ? '<b>RG e CPF verificados - </b> Sim' : '<b>RG e CPF verificados - </b>Não'; // $r is set to 'Yes'
+    $rg_verificado = (1 == get_user_meta($id, 'rg_verificado', true)) ? '<b>Documentos verificados - </b> Sim' : '<b>Documentos verificados - </b>Não'; // $r is set to 'Yes'
 
     $modal_cadastro='';
     $campos_user=get_fields("user_".$id);
@@ -48,7 +48,7 @@ function pega_user(){
     $checked = (1 == get_user_meta($id, 'rg_verificado', true)) ? 'checked' : '';
     $modal_cadastro .= '<form id="form-rg">
     <div class="acf-label">
-    <label for="rg-verificado-checkbox">RG e CPF verificados</label>
+    <label for="rg-verificado-checkbox">Documentos verificados</label>
     <input type="checkbox" id="rg-verificado-checkbox" name="rg-verificado-checkbox" value="1" '.$checked.' >
     <input type="hidden" id="user-id-rg" name="user-id-rg" value="'.$id.'" >
     <input type="submit" id="rg-verificado-submit" name="rg-verificado-submit" value="Salvar" >
@@ -216,7 +216,7 @@ function pega_inscricao(){
   if (isset($_POST['user_id'])) {
     $user_id=$_POST['user_id'];
 		$post_id=$_POST['post_id'];
-    $rg_verificado = (1 == get_user_meta($user_id, 'rg_verificado', true)) ? '<b>RG verificado - </b> Sim' : '<b>RG verificado - </b>Não'; // $r is set to 'Yes'
+    $rg_verificado = (1 == get_user_meta($user_id, 'rg_verificado', true)) ? '<b>Documentos verificados - </b> Sim' : '<b>Documentos verificados - </b>Não'; // $r is set to 'Yes'
     $modal_cadastro='';
     $campos_user=get_fields("user_".$user_id);
     $perfil_completo = ( $campos_user['nome_completo']) ? '<b>Completo - </b> Sim' : '<b>Completo - </b> Não'; // $r is set to 'Yes'
@@ -237,7 +237,7 @@ function pega_inscricao(){
     $checked = (1 == get_user_meta($user_id, 'rg_verificado', true)) ? 'checked' : '';
     $modal_cadastro .= '<form id="form-rg">
     <div class="acf-label">
-    <label for="rg-verificado-checkbox">RG verificado</label>
+    <label for="rg-verificado-checkbox">Documentos verificados</label>
     <input type="checkbox" id="rg-verificado-checkbox" name="rg-verificado-checkbox" value="1" '.$checked.' >
 		<input type="hidden" id="user-id-rg" name="user-id-rg" value="'.$user_id.'" >
 		<input type="hidden" id="post-id-rg" name="post-id-rg" value="'.$post_id.'" >
