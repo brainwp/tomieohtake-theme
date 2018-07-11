@@ -232,7 +232,7 @@ function pega_inscricao(){
           $file_parts = pathinfo($valor['url']);
           $ext = basename($valor['url']);
           if ($file_parts['extension'] == 'pdf') {
-            $valor = '<br><a class="rg-user" href="'.$valor['url'].'">'.$valor['filename'].'</a>';
+            $valor = '<br><a target="_blank" class="rg-user" href="'.$valor['url'].'">'.$valor['filename'].'</a>';
           }
           else{
             $valor = $file_parts['extension'].'<br><img class="rg-user" src="'.$valor['url'].'">';
