@@ -34,7 +34,13 @@ function pega_user(){
     foreach ($campos_user as $campo => $valor) {
       if ($campo != 'senha' && $campo != 'confirmacao_da_senha') {
         if ($campo == 'formacao_doc_digitalizado' || $campo == 'rg_digitalizado' ||$campo == 'cpf_digitalizado') {
-          $valor = '<br><img class="rg-user" src="'.$valor['url'].'">';
+          $file_parts = pathinfo($value);
+          if ($file_parts['extension'] == 'pdf') {
+            $valor = '<br><a class="rg-user" href="'.$valor['url'].'">'.$valor['filename'].'</a>';
+          }
+          else{
+            $valor = 'ssss<br><img class="rg-user" src="'.$valor['url'].'">';
+          }
         }
         elseif($campo == 'nome_completo' && !$valor){
           $valor = 'Usuário não adicionou nome completo';
@@ -223,7 +229,14 @@ function pega_inscricao(){
     foreach ($campos_user as $campo => $valor) {
       if ($campo != 'senha' && $campo != 'confirmacao_da_senha') {
         if ($campo == 'formacao_doc_digitalizado' || $campo == 'rg_digitalizado' ||$campo == 'cpf_digitalizado') {
-          $valor = '<br><img class="rg-user" src="'.$valor['url'].'">';
+          $file_parts = pathinfo($valor['url']);
+          $ext = basename($valor['url']);
+          if ($file_parts['extension'] == 'pdf') {
+            $valor = '<br><a class="rg-user" href="'.$valor['url'].'">'.$valor['filename'].'</a>';
+          }
+          else{
+            $valor = $file_parts['extension'].'<br><img class="rg-user" src="'.$valor['url'].'">';
+          }
         }
         elseif($campo == 'nome_completo' && !$valor){
           $valor = 'Usuário não adicionou nome completo';
